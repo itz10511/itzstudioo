@@ -53,6 +53,7 @@ wrapLowerI([
   '.photo-card-label',
   '.footer-col-label',
   '.footer-nav-col a:not(.business-btn)',
+  '.footer-bottom-bar p',
   '.feat-caption p',
   '.project-cat',
 ].join(','));

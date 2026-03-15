@@ -534,8 +534,9 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
   display: flex;
   justify-content: center;
   margin-top: 2rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4.5rem;
   z-index: 4;
+  transform: translateX(-2.5rem);
 }
 .footer-logo-wrap::before {
   content: '';
@@ -615,7 +616,8 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
 .footer-bottom-bar {
   width: 100%; display: flex; align-items: center; justify-content: space-between;
   padding: 1.25rem 0; font-size: .68rem; letter-spacing: .1em; opacity: .3;
-  text-transform: uppercase;
+  text-transform: uppercase; font-weight: 800;
+  font-family: var(--font-display);
   position: relative; z-index: 4;
   border-top: 1px solid rgba(240,234,214,.06);
 }
