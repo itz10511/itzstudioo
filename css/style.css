@@ -116,13 +116,62 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(240,234,214,.06);
 }
-.nav-logo { display: flex; align-items: center; }
+.nav-logo {
+  display: flex; align-items: center;
+  position: relative; z-index: 1;
+}
+/* Aura behind logo */
+.nav-logo::before {
+  content: '';
+  position: absolute;
+  width: 90px; height: 90px;
+  top: 50%; left: 38px;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(170,255,52,.55) 0%, rgba(255,0,0,.35) 55%, transparent 72%);
+  filter: blur(14px);
+  opacity: 0;
+  transition: opacity .45s ease, transform .5s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+.nav-logo:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  animation: auraBreath 1.8s ease-in-out infinite;
+}
+@keyframes auraBreath {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(14px) hue-rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.25);
+    filter: blur(18px) hue-rotate(120deg);
+  }
+}
 .nav-logo img {
   height: 72px; width: auto; display: block;
   filter: grayscale(1) brightness(1.1);
-  transition: filter .4s ease;
+  transition: filter .4s ease, transform .3s ease;
 }
-.nav-logo:hover img { filter: grayscale(0) brightness(1); }
+.nav-logo:hover img {
+  filter: grayscale(1) brightness(1.3) drop-shadow(0 0 6px var(--lime)) drop-shadow(0 0 18px rgba(170,255,52,.5));
+  transform: scale(1.05);
+  animation: logoGlowPulse 1.6s ease-in-out infinite alternate;
+}
+@keyframes logoGlowPulse {
+  from {
+    filter: grayscale(1) brightness(1.3)
+            drop-shadow(0 0 6px var(--lime))
+            drop-shadow(0 0 20px rgba(170,255,52,.5));
+  }
+  to {
+    filter: grayscale(1) brightness(1.3)
+            drop-shadow(0 0 8px var(--red))
+            drop-shadow(0 0 24px rgba(255,0,0,.45));
+  }
+}
 .nav-links { display: flex; gap: 2.5rem; }
 .nav-links a { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; opacity: .5; transition: opacity .25s, color .25s; }
 .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--lime); }
@@ -486,19 +535,41 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
   margin-bottom: 3rem;
   pointer-events: none;
 }
+.footer-logo-wrap { position: relative; }
+.footer-logo-wrap::before {
+  content: '';
+  position: absolute;
+  width: 160px; height: 160px;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(170,255,52,.5) 0%, rgba(255,0,0,.3) 55%, transparent 72%);
+  filter: blur(22px);
+  opacity: 0;
+  transition: opacity .45s ease, transform .5s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+.footer-logo-wrap:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  animation: auraBreath 1.8s ease-in-out infinite;
+}
 .footer-logo-img {
   width: clamp(90px, 10vw, 150px);
   height: auto;
   display: block;
   margin: 0 auto;
   opacity: .85;
+  position: relative; z-index: 1;
   filter: grayscale(1) brightness(1.1);
-  transition: filter .4s ease, opacity .4s ease;
+  transition: filter .4s ease, opacity .4s ease, transform .3s ease;
   cursor: pointer;
 }
-.footer-logo-img:hover {
-  filter: grayscale(0) brightness(1);
+.footer-logo-wrap:hover .footer-logo-img {
   opacity: 1;
+  transform: scale(1.06);
+  animation: logoGlowPulse 1.6s ease-in-out infinite alternate;
 }
 
 /* Footer nav grid */
