@@ -438,7 +438,7 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
 .footer-sig-img {
   width: clamp(100px, 13vw, 180px);
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 1.5rem;
   position: relative; z-index: 2;
   opacity: 0; transform: translateY(6px);
   transition: opacity 1.2s var(--ease), transform 1.2s var(--ease);
@@ -528,19 +528,15 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
   font-weight: 300;
 }
 
-/* Signature + logo group in footer */
-.footer-sig-logo-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: .5rem;
-  margin-top: 2.5rem;
-  margin-bottom: 3rem;
-  position: relative; z-index: 4;
-}
-
 /* Logo in footer */
-.footer-logo-wrap { position: relative; }
+.footer-logo-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  z-index: 4;
+}
 .footer-logo-wrap::before {
   content: '';
   position: absolute;
