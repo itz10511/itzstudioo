@@ -208,6 +208,41 @@ if (stripSection && stripTrack) {
   handleStrip();
 }
 
+// ── HERO SPOTLIGHT REVEAL ─────────────
+const heroSection   = document.getElementById('heroSection');
+const heroReveal    = document.querySelector('.hero-reveal-layer');
+
+if (heroSection && heroReveal) {
+  let spotX = 50, spotY = 50;
+  let curX  = 50, curY  = 50;
+  let raf;
+
+  const lerp = (a, b, t) => a + (b - a) * t;
+
+  const animSpot = () => {
+    curX = lerp(curX, spotX, 0.1);
+    curY = lerp(curY, spotY, 0.1);
+    heroReveal.style.clipPath = `circle(200px at ${curX}% ${curY}%)`;
+    raf = requestAnimationFrame(animSpot);
+  };
+
+  heroSection.addEventListener('mouseenter', () => {
+    raf = requestAnimationFrame(animSpot);
+  });
+
+  heroSection.addEventListener('mousemove', e => {
+    const rect = heroSection.getBoundingClientRect();
+    spotX = ((e.clientX - rect.left) / rect.width  * 100);
+    spotY = ((e.clientY - rect.top)  / rect.height * 100);
+  });
+
+  heroSection.addEventListener('mouseleave', () => {
+    cancelAnimationFrame(raf);
+    heroReveal.style.clipPath = 'circle(0px at 50% 50%)';
+    curX = 50; curY = 50;
+  });
+}
+
 // ── HERO TITLE PARALLAX ───────────────
 const heroTitle = document.getElementById('heroTitle');
 if (heroTitle) {
