@@ -50,8 +50,9 @@ h1, h2, h3,
 
 /* The "i" exception — stays lowercase */
 .i-lower {
-  text-transform: lowercase;
-  display: inline;
+  text-transform: lowercase !important;
+  display: inline !important;
+  font-style: normal;
 }
 
 html { scroll-behavior: smooth; }
@@ -174,8 +175,8 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
   position: relative; z-index: 2;
 }
 .hero-line { display: block; overflow: hidden; }
-.hero-line span { display: block; transform: translateY(110%); animation: revealUp 1s var(--ease) forwards; }
-.hero-line:nth-child(2) span { animation-delay: .1s; }
+.hero-line > span { display: block; transform: translateY(110%); animation: revealUp 1s var(--ease) forwards; }
+.hero-line:nth-child(2) > span { animation-delay: .1s; }
 @keyframes revealUp { to { transform: translateY(0); } }
 .hero-bottom { display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 2; }
 .hero-sub { font-size: .82rem; opacity: .4; letter-spacing: .06em; }
