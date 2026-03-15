@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — iTZ.STUDiOO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">iTZ.STUDiOO</a>
+    <ul class="nav-links">
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <section class="contact-section">
+    <div class="contact-left">
+      <p class="eyebrow">Contact</p>
+      <h1 class="contact-title">Let's work<br/><em>together.</em></h1>
+      <div class="contact-info">
+        <p>
+          <!-- Replace with your email -->
+          <a href="mailto:hello@itzstudioo.com">hello@itzstudioo.com</a>
+        </p>
+        <p>Based in [Your City]</p>
+        <div class="contact-socials">
+          <a href="#" target="_blank" rel="noopener">Instagram ↗</a>
+          <a href="#" target="_blank" rel="noopener">YouTube ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form" name="contact" method="POST" data-netlify="true" action="/thanks.html">
+      <!-- 
+        FORM OPTIONS:
+        1. Netlify Forms (if you switch to Netlify): keep data-netlify="true"
+        2. Formspree (free, works on GitHub Pages): change action to https://formspree.io/f/YOUR_ID
+        3. EmailJS: remove action/method, use JS to send
+      -->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required />
+      </div>
+      <div class="form-group">
+        <label for="type">Project type</label>
+        <select id="type" name="type">
+          <option value="">Select...</option>
+          <option>Photography</option>
+          <option>Videography</option>
+          <option>Both</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+      </div>
+      <button type="submit" class="btn-primary btn-full">Send message →</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p class="footer-logo">iTZ.STUDiOO</p>
+    <p class="footer-copy">&copy; <span id="year"></span> — All rights reserved</p>
+    <div class="footer-socials">
+      <a href="#" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" target="_blank" rel="noopener">YouTube</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

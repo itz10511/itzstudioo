@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — iTZ.STUDiOO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">iTZ.STUDiOO</a>
+    <ul class="nav-links">
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <header class="page-header">
+    <h1 class="page-title">Work</h1>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="photo">Photo</button>
+      <button class="filter-btn" data-filter="video">Video</button>
+    </div>
+  </header>
+
+  <!-- MASONRY GRID -->
+  <section class="masonry-grid">
+
+    <!-- REPLACE each .grid-item's <img> src with your real photos -->
+    <!-- For videos, replace <img> with a <video> or YouTube embed -->
+
+    <div class="grid-item" data-category="photo">
+      <div class="grid-placeholder" style="background:#1a1a1a; height:380px;"></div>
+      <!-- <img src="images/photo-1.jpg" alt="Project Name" loading="lazy" /> -->
+      <div class="grid-caption">
+        <span class="tag">Photo</span>
+        <p>Project Title</p>
+      </div>
+    </div>
+
+    <div class="grid-item" data-category="video">
+      <div class="grid-placeholder" style="background:#111; height:240px;"></div>
+      <!-- To embed a YouTube video: -->
+      <!-- <div class="video-thumb"><iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen loading="lazy"></iframe></div> -->
+      <div class="grid-caption">
+        <span class="tag">Video</span>
+        <p>Project Title</p>
+      </div>
+    </div>
+
+    <div class="grid-item" data-category="photo">
+      <div class="grid-placeholder" style="background:#222; height:300px;"></div>
+      <div class="grid-caption">
+        <span class="tag">Photo</span>
+        <p>Project Title</p>
+      </div>
+    </div>
+
+    <div class="grid-item" data-category="video">
+      <div class="grid-placeholder" style="background:#181818; height:340px;"></div>
+      <div class="grid-caption">
+        <span class="tag">Video</span>
+        <p>Project Title</p>
+      </div>
+    </div>
+
+    <div class="grid-item" data-category="photo">
+      <div class="grid-placeholder" style="background:#141414; height:260px;"></div>
+      <div class="grid-caption">
+        <span class="tag">Photo</span>
+        <p>Project Title</p>
+      </div>
+    </div>
+
+    <div class="grid-item" data-category="photo">
+      <div class="grid-placeholder" style="background:#1e1e1e; height:420px;"></div>
+      <div class="grid-caption">
+        <span class="tag">Photo</span>
+        <p>Project Title</p>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="footer">
+    <p class="footer-logo">iTZ.STUDiOO</p>
+    <p class="footer-copy">&copy; <span id="year"></span> — All rights reserved</p>
+    <div class="footer-socials">
+      <a href="#" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" target="_blank" rel="noopener">YouTube</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
