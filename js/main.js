@@ -2,6 +2,61 @@
    iTZ.STUDiOO — main.js
    ═══════════════════════════════════════ */
 
+// ── LOWERCASE "i" TWIST ───────────────
+// All display text is uppercase via CSS, but every "i" stays lowercase.
+// This walks text nodes inside display elements and wraps each "i" / "I"
+// with <span class="i-lower"> which CSS forces back to lowercase.
+function wrapLowerI(selector) {
+  document.querySelectorAll(selector).forEach(el => {
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    const nodes = [];
+    let node;
+    while ((node = walker.nextNode())) nodes.push(node);
+
+    nodes.forEach(textNode => {
+      const text = textNode.textContent;
+      if (!/[iI]/.test(text)) return;
+
+      const frag = document.createDocumentFragment();
+      text.split(/([iI])/).forEach(part => {
+        if (part === 'i' || part === 'I') {
+          const span = document.createElement('span');
+          span.className = 'i-lower';
+          span.textContent = 'i';
+          frag.appendChild(span);
+        } else {
+          frag.appendChild(document.createTextNode(part));
+        }
+      });
+      textNode.parentNode.replaceChild(frag, textNode);
+    });
+  });
+}
+
+wrapLowerI([
+  'h1', 'h2', 'h3',
+  '.nav-logo',
+  '.hero-eyebrow',
+  '.page-title',
+  '.quote-text',
+  '.statement-text',
+  '.footer-tagline',
+  '.cta-title',
+  '.socials-title',
+  '.about-name',
+  '.contact-title',
+  '.service-item h3',
+  '.service-card h3',
+  '.services-section h2',
+  '.filter-btn',
+  '.project-name',
+  '.photo-card-label',
+  '.footer-col-label',
+  '.footer-nav-col a',
+  '.feat-caption p',
+  '.project-cat',
+].join(','));
+
 // ── YEAR ──────────────────────────────
 document.querySelectorAll('#year').forEach(el => el.textContent = new Date().getFullYear());
 

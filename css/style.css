@@ -15,13 +15,43 @@
   --light:     #aaaaaa;
   --accent:    #e8e0c8;
 
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body:    'Mona Sans', 'DM Sans', sans-serif;
+  --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-body:    'Helvetica Neue', Helvetica, Arial, sans-serif;
 
   --ease: cubic-bezier(0.76, 0, 0.24, 1);
   --dur:  0.85s;
   --pad:  clamp(1.5rem, 4vw, 3.5rem);
   --nav-h: 72px;
+}
+
+/* ── ALL-CAPS DISPLAY WITH LOWERCASE i ─ */
+h1, h2, h3,
+.nav-logo,
+.hero-title,
+.page-title,
+.quote-text,
+.statement-text,
+.footer-tagline,
+.cta-title,
+.socials-title,
+.about-name,
+.contact-title,
+.service-item h3,
+.service-card h3,
+.services-section h2,
+.filter-btn,
+.marquee-inner span,
+.portrait-strip-inner,
+.partner-strip-inner span {
+  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+
+/* The "i" exception — stays lowercase */
+.i-lower {
+  text-transform: lowercase;
+  display: inline;
 }
 
 html { scroll-behavior: smooth; }
@@ -138,9 +168,9 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
 }
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(4rem, 14vw, 14rem);
-  font-weight: 900;
-  line-height: .88; letter-spacing: -.03em; margin-bottom: 2.5rem;
+  font-size: clamp(3.5rem, 11vw, 11rem);
+  font-weight: 800;
+  line-height: .9; letter-spacing: -.02em; margin-bottom: 2.5rem;
   position: relative; z-index: 2;
 }
 .hero-line { display: block; overflow: hidden; }
