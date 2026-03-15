@@ -150,31 +150,31 @@ bindClipReveal('.project-card');
 // ── PORTRAIT SCROLL SHRINK + SIGNATURE ─
 const portraitSection = document.getElementById('portraitSection');
 const portraitWrap    = document.getElementById('portraitWrap');
-const sigPath         = document.querySelector('.portrait-sig .sig-path');
+const sigImg          = document.querySelector('.portrait-sig-img');
 
 if (portraitSection && portraitWrap) {
-  let sigDrawn = false;
+  let sigShown = false;
   const handlePortrait = () => {
     const rect     = portraitSection.getBoundingClientRect();
     const viewH    = window.innerHeight;
     const progress = Math.min(Math.max(-rect.top / (rect.height - viewH), 0), 1);
     const scale    = 1 - progress * 0.42;
     portraitWrap.style.transform = `scale(${scale})`;
-    if (progress > 0.25 && !sigDrawn && sigPath) {
-      sigPath.classList.add('drawn');
-      sigDrawn = true;
+    if (progress > 0.25 && !sigShown && sigImg) {
+      sigImg.classList.add('visible');
+      sigShown = true;
     }
   };
   window.addEventListener('scroll', handlePortrait, { passive: true });
 }
 
-// Draw footer signature on scroll into view
-const footerSigPath = document.querySelector('.footer-sig-path');
-if (footerSigPath) {
+// Fade in footer signature on scroll into view
+const footerSigImg = document.querySelector('.footer-sig-img');
+if (footerSigImg) {
   const sigObs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { footerSigPath.classList.add('drawn'); sigObs.unobserve(e.target); } });
+    entries.forEach(e => { if (e.isIntersecting) { footerSigImg.classList.add('visible'); sigObs.unobserve(e.target); } });
   }, { threshold: 0.3 });
-  sigObs.observe(footerSigPath);
+  sigObs.observe(footerSigImg);
 }
 
 // ── SCROLL REVEAL ─────────────────────
