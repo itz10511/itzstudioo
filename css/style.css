@@ -402,7 +402,7 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
 /* =====================
    SOCIALS FAN CARDS
    ===================== */
-.socials-section { padding: 7rem var(--pad); text-align: center; overflow: hidden; border-top: 1px solid rgba(240,234,214,.08); }
+.socials-section { padding: 7rem var(--pad) 10rem; text-align: center; overflow: hidden; border-top: 1px solid rgba(240,234,214,.08); }
 .socials-title { font-family: var(--font-display); font-size: clamp(3rem, 8vw, 7rem); line-height: .92; margin-bottom: 5rem; }
 .socials-title em { font-style: italic; opacity: .45; }
 .socials-cards { position: relative; height: clamp(360px, 52vh, 540px); display: flex; align-items: flex-end; justify-content: center; }
@@ -411,16 +411,20 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
   width: clamp(130px, 15vw, 200px); aspect-ratio: 9/16;
   border-radius: 14px; overflow: hidden; cursor: none;
   transition: transform .55s var(--ease); transform-origin: bottom center;
+  display: block; text-decoration: none;
 }
 .social-card-img { width: 100%; height: 100%; background: var(--dark); position: relative; }
+.social-card-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .social-card-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(8,8,8,.8) 0%, transparent 50%);
-  display: flex; align-items: flex-end; padding: .75rem;
-  opacity: 0; transition: opacity .3s;
+  background: linear-gradient(to top, rgba(8,8,8,.85) 0%, transparent 55%);
+  display: flex; align-items: flex-end; padding: .85rem;
 }
-.social-card:hover .social-card-overlay { opacity: 1; }
-.social-card-overlay span { font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; }
+.social-card-overlay span {
+  font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  font-family: var(--font-display); font-weight: 800;
+  display: flex; align-items: center; gap: .4rem;
+}
 
 /* Fan positions — 3 cards */
 .social-card:nth-child(1) { transform: rotate(-22deg) translateX(-180px); z-index: 1; }
@@ -431,7 +435,10 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
 .socials-cards:hover .social-card:nth-child(2) { transform: rotate(0deg) translateY(-12px); }
 .socials-cards:hover .social-card:nth-child(3) { transform: rotate(26deg) translateX(210px); }
 
-.social-card:hover { transform: rotate(0deg) translateY(-22px) scale(1.06) !important; z-index: 10 !important; }
+/* Each card lifts in its own position — no dragging to center */
+.social-card:nth-child(1):hover { transform: rotate(-18deg) translateX(-210px) translateY(-24px) scale(1.06) !important; z-index: 10 !important; }
+.social-card:nth-child(2):hover { transform: rotate(0deg)                       translateY(-24px) scale(1.06) !important; z-index: 10 !important; }
+.social-card:nth-child(3):hover { transform: rotate(18deg)  translateX(210px)   translateY(-24px) scale(1.06) !important; z-index: 10 !important; }
 
 .socials-links { display: flex; justify-content: center; gap: 2rem; margin-top: 6rem; padding-top: 1rem; }
 .socials-links a {
@@ -805,6 +812,9 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
   .social-card:nth-child(1) { transform: rotate(-22deg) translateX(-120px); }
   .social-card:nth-child(2) { transform: rotate(0deg); }
   .social-card:nth-child(3) { transform: rotate(22deg) translateX(120px); }
+  .social-card:nth-child(1):hover { transform: rotate(-18deg) translateX(-120px) translateY(-20px) scale(1.06) !important; }
+  .social-card:nth-child(2):hover { transform: rotate(0deg)                       translateY(-20px) scale(1.06) !important; }
+  .social-card:nth-child(3):hover { transform: rotate(18deg)  translateX(120px)   translateY(-20px) scale(1.06) !important; }
   .footer-nav-grid { grid-template-columns: 1fr 1fr; }
   .footer-nav-col.center { grid-column: span 2; }
   .about-section { grid-template-columns: 1fr; gap: 3rem; }
