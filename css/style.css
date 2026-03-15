@@ -436,9 +436,9 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
 
 /* Footer signature image */
 .footer-sig-img {
-  width: clamp(120px, 16vw, 220px);
-  margin: 0 auto 1.5rem;
+  width: clamp(100px, 13vw, 180px);
   display: block;
+  margin: 0 auto;
   position: relative; z-index: 2;
   opacity: 0; transform: translateY(6px);
   transition: opacity 1.2s var(--ease), transform 1.2s var(--ease);
@@ -528,13 +528,18 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
   font-weight: 300;
 }
 
-/* Logo in footer */
-.footer-logo-wrap {
-  position: relative; z-index: 3;
-  margin-top: 2rem;
+/* Signature + logo group in footer */
+.footer-sig-logo-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  margin-top: 2.5rem;
   margin-bottom: 3rem;
-  pointer-events: none;
+  position: relative; z-index: 4;
 }
+
+/* Logo in footer */
 .footer-logo-wrap { position: relative; }
 .footer-logo-wrap::before {
   content: '';
