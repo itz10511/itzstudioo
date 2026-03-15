@@ -221,19 +221,27 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
   60% { transform: translate(-4%,5%); }
   80% { transform: translate(3%,-3%); }
 }
-/* Hero spotlight reveal layer */
+/* Hero spotlight reveal layer — tiled logo wallpaper */
 .hero-reveal-layer {
   position: absolute; inset: 0; z-index: 1;
   clip-path: circle(0px at 50% 50%);
   will-change: clip-path;
   overflow: hidden;
   pointer-events: none;
+  /* Tiled logo pattern */
+  background-image: url(images/logo-m.png);
+  background-repeat: repeat;
+  background-size: 140px;
+  /* Desaturate the tiled logos */
+  filter: grayscale(1) brightness(.7) contrast(1.1);
 }
-.hero-reveal-layer img {
-  width: 100%; height: 100%;
-  object-fit: contain; object-position: center center;
-  filter: grayscale(1) contrast(1.1) brightness(.9);
-  opacity: .85;
+/* Lime color wash over the pattern */
+.hero-reveal-layer::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(170, 255, 52, 0.18);
+  mix-blend-mode: screen;
+  pointer-events: none;
 }
 
 .hero-eyebrow {

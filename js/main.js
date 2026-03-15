@@ -222,7 +222,7 @@ if (heroSection && heroReveal) {
   const animSpot = () => {
     curX = lerp(curX, spotX, 0.1);
     curY = lerp(curY, spotY, 0.1);
-    heroReveal.style.clipPath = `circle(200px at ${curX}% ${curY}%)`;
+    heroReveal.style.clipPath = `circle(240px at ${curX}% ${curY}%)`;
     raf = requestAnimationFrame(animSpot);
   };
 
