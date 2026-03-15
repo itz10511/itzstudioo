@@ -208,42 +208,47 @@ if (stripSection && stripTrack) {
   handleStrip();
 }
 
-// ── HERO BLOB SPOTLIGHT ───────────────
+// ── HERO LENS REVEAL (Lando-style ellipse) ───────────
 const heroSection = document.getElementById('heroSection');
-const heroBlob    = document.querySelector('.hero-reveal-blob');
+const heroLens    = document.querySelector('.hero-lens');
 
-if (heroSection && heroBlob) {
-  let targetX = 0, targetY = 0;
-  let curX    = 0, curY    = 0;
+if (heroSection && heroLens && window.matchMedia('(pointer: fine)').matches) {
+  let targetX = 50, targetY = 50;
+  let curX    = 50, curY    = 50;
   let raf;
 
   const lerp = (a, b, t) => a + (b - a) * t;
 
-  const animBlob = () => {
-    curX = lerp(curX, targetX, 0.08);
-    curY = lerp(curY, targetY, 0.08);
-    heroBlob.style.left = curX + 'px';
-    heroBlob.style.top  = curY + 'px';
-    raf = requestAnimationFrame(animBlob);
+  const animLens = () => {
+    curX = lerp(curX, targetX, 0.09);
+    curY = lerp(curY, targetY, 0.09);
+    heroLens.style.clipPath =
+      `ellipse(22% 18% at ${curX.toFixed(2)}% ${curY.toFixed(2)}%)`;
+    raf = requestAnimationFrame(animLens);
   };
 
   heroSection.addEventListener('mouseenter', e => {
     const rect = heroSection.getBoundingClientRect();
-    curX = targetX = e.clientX - rect.left;
-    curY = targetY = e.clientY - rect.top;
-    heroBlob.classList.add('active');
-    raf = requestAnimationFrame(animBlob);
+    // Snap to cursor position instantly on enter so there's no drift from center
+    curX = targetX = (e.clientX - rect.left) / rect.width  * 100;
+    curY = targetY = (e.clientY - rect.top)  / rect.height * 100;
+    heroLens.classList.add('active');
+    raf = requestAnimationFrame(animLens);
   });
 
   heroSection.addEventListener('mousemove', e => {
     const rect = heroSection.getBoundingClientRect();
-    targetX = e.clientX - rect.left;
-    targetY = e.clientY - rect.top;
+    targetX = (e.clientX - rect.left) / rect.width  * 100;
+    targetY = (e.clientY - rect.top)  / rect.height * 100;
   });
 
   heroSection.addEventListener('mouseleave', () => {
-    heroBlob.classList.remove('active');
+    heroLens.classList.remove('active');
     cancelAnimationFrame(raf);
+    // After fade-out transition, reset clip-path so next entry snaps clean
+    setTimeout(() => {
+      heroLens.style.clipPath = 'ellipse(0% 0% at 50% 50%)';
+    }, 260);
   });
 }
 
