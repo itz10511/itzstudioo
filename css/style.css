@@ -393,6 +393,7 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
   font-family: var(--font-display);
   font-size: clamp(1.6rem, 2.5vw, 2.5rem);
   letter-spacing: .04em; opacity: .65; margin-bottom: .15rem;
+  text-transform: uppercase;
   transition: opacity .25s;
 }
 .footer-nav-col a:hover { opacity: 1; }
@@ -417,7 +418,8 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
 /* Footer bottom bar */
 .footer-bottom-bar {
   width: 100%; display: flex; align-items: center; justify-content: space-between;
-  padding: 1.25rem 0; font-size: .68rem; letter-spacing: .06em; opacity: .3;
+  padding: 1.25rem 0; font-size: .68rem; letter-spacing: .1em; opacity: .3;
+  text-transform: uppercase;
   position: relative; z-index: 4;
   border-top: 1px solid rgba(240,234,214,.06);
 }
