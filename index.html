@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iTZ.STUDiOO — Visual Artist</title>
-  <meta name="description" content="Photography & Videography by iTZ.STUDiOO" />
+  <title>iTZ.STUDiOO — Photography & Film, Los Angeles</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap" rel="stylesheet" />
@@ -12,7 +11,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav class="nav">
     <a href="index.html" class="nav-logo">iTZ.STUDiOO</a>
     <ul class="nav-links">
@@ -27,62 +25,112 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-text">
-      <p class="hero-eyebrow">Photography &amp; Videography</p>
-      <h1 class="hero-title">
-        <span class="hero-line">VISUAL</span>
-        <span class="hero-line outline">STORY</span>
-        <span class="hero-line">TELLER.</span>
-      </h1>
-      <a href="work.html" class="btn-primary">View Work</a>
+    <p class="hero-eyebrow">Photography · Film · Video · Los Angeles</p>
+    <h1 class="hero-title">
+      <span class="hero-line"><span>iTZ</span></span>
+      <span class="hero-line"><span>.STUDiOO</span></span>
+    </h1>
+    <div class="hero-bottom">
+      <p class="hero-sub">Visual storytelling through the lens</p>
+      <a href="work.html" class="hero-cta">View Work ↓</a>
     </div>
-    <div class="hero-marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>PHOTO &nbsp;·&nbsp; VIDEO &nbsp;·&nbsp; iTZ.STUDiOO &nbsp;·&nbsp; PHOTO &nbsp;·&nbsp; VIDEO &nbsp;·&nbsp; iTZ.STUDiOO &nbsp;·&nbsp; PHOTO &nbsp;·&nbsp; VIDEO &nbsp;·&nbsp; iTZ.STUDiOO &nbsp;·&nbsp; PHOTO &nbsp;·&nbsp; VIDEO &nbsp;·&nbsp; iTZ.STUDiOO &nbsp;·&nbsp;</span>
-        <span>PHOTO &nbsp;·&nbsp; VIDEO &nbsp;·&nbsp; iTZ.STUDiOO &nbsp;·&nbsp; PHOTO &nbsp;·&nbsp; VIDEO &nbsp;·&nbsp; iTZ.STUDiOO &nbsp;·&nbsp; PHOTO &nbsp;·&nbsp; VIDEO &nbsp;·&nbsp; iTZ.STUDiOO &nbsp;·&nbsp; PHOTO &nbsp;·&nbsp; VIDEO &nbsp;·&nbsp; iTZ.STUDiOO &nbsp;·&nbsp;</span>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-inner">
+      <span>PHOTO &nbsp;·&nbsp; FILM &nbsp;·&nbsp; VIDEO &nbsp;·&nbsp; LOS ANGELES &nbsp;·&nbsp; PHOTOGRAPHY &nbsp;·&nbsp; CREATIVE DIRECTION &nbsp;·&nbsp; VISUAL STORYTELLING &nbsp;·&nbsp; </span>
+      <span>PHOTO &nbsp;·&nbsp; FILM &nbsp;·&nbsp; VIDEO &nbsp;·&nbsp; LOS ANGELES &nbsp;·&nbsp; PHOTOGRAPHY &nbsp;·&nbsp; CREATIVE DIRECTION &nbsp;·&nbsp; VISUAL STORYTELLING &nbsp;·&nbsp; </span>
+    </div>
+  </div>
+
+  <!-- FEATURED WORK -->
+  <section class="featured">
+    <div class="featured-header">
+      <p class="eyebrow">Selected Work</p>
+      <a href="work.html" class="featured-link">View all →</a>
+    </div>
+    <div class="featured-grid">
+
+      <div class="feat-item feat-tall" data-reveal>
+        <div class="feat-media">
+          <div class="feat-placeholder" style="background:#141414; height:580px;"></div>
+          <!-- <img src="images/photo-1.jpg" alt="Work" loading="lazy" /> -->
+        </div>
+        <div class="feat-caption">
+          <span class="tag">Photo</span>
+          <p>Project Title</p>
+        </div>
+      </div>
+
+      <div class="feat-col">
+        <div class="feat-item" data-reveal>
+          <div class="feat-media">
+            <div class="feat-placeholder" style="background:#1a1a1a; height:280px;"></div>
+          </div>
+          <div class="feat-caption">
+            <span class="tag">Film</span>
+            <p>Project Title</p>
+          </div>
+        </div>
+        <div class="feat-item" data-reveal>
+          <div class="feat-media">
+            <div class="feat-placeholder" style="background:#111; height:280px;"></div>
+          </div>
+          <div class="feat-caption">
+            <span class="tag">Video</span>
+            <p>Project Title</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="feat-item feat-wide" data-reveal style="margin-top:1rem;">
+      <div class="feat-media">
+        <div class="feat-placeholder" style="background:#1e1e1e; height:320px;"></div>
+      </div>
+      <div class="feat-caption">
+        <span class="tag">Photo</span>
+        <p>Project Title</p>
       </div>
     </div>
   </section>
 
-  <!-- SELECTED WORK GRID (placeholder tiles) -->
-  <section class="grid-section">
-    <div class="section-header">
-      <h2>Selected Work</h2>
-      <a href="work.html" class="link-arrow">All work →</a>
-    </div>
-    <div class="work-grid">
-      <a href="work.html" class="grid-item tall">
-        <div class="grid-placeholder" style="background:#1a1a1a"></div>
-        <div class="grid-caption">
-          <span class="tag">Photo</span>
-          <p>Project Title</p>
-        </div>
-      </a>
-      <a href="work.html" class="grid-item">
-        <div class="grid-placeholder" style="background:#111"></div>
-        <div class="grid-caption">
-          <span class="tag">Video</span>
-          <p>Project Title</p>
-        </div>
-      </a>
-      <a href="work.html" class="grid-item">
-        <div class="grid-placeholder" style="background:#222"></div>
-        <div class="grid-caption">
-          <span class="tag">Photo</span>
-          <p>Project Title</p>
-        </div>
-      </a>
-      <a href="work.html" class="grid-item wide">
-        <div class="grid-placeholder" style="background:#181818"></div>
-        <div class="grid-caption">
-          <span class="tag">Video</span>
-          <p>Project Title</p>
-        </div>
-      </a>
-    </div>
+  <!-- STATEMENT -->
+  <section class="statement" data-reveal>
+    <p class="statement-text">
+      <em>Creating visuals</em><br/>that tell your story.
+    </p>
+    <a href="about.html" class="statement-link">About itz.studioo →</a>
   </section>
 
-  <!-- FOOTER -->
+  <!-- SERVICES BAND -->
+  <div class="services-band">
+    <div class="service-item" data-reveal>
+      <span class="service-num">01</span>
+      <h3>Photography</h3>
+      <p>Editorial, portrait, event, and commercial photography.</p>
+    </div>
+    <div class="service-item" data-reveal>
+      <span class="service-num">02</span>
+      <h3>Film</h3>
+      <p>Cinematic short-form and long-form film production.</p>
+    </div>
+    <div class="service-item" data-reveal>
+      <span class="service-num">03</span>
+      <h3>Video</h3>
+      <p>Social content, reels, and branded video production.</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-band" data-reveal>
+    <p class="eyebrow">Ready to create?</p>
+    <h2 class="cta-title">Let's work<br/><em>together.</em></h2>
+    <a href="contact.html" class="btn-primary">Get in touch →</a>
+  </section>
+
   <footer class="footer">
     <p class="footer-logo">iTZ.STUDiOO</p>
     <p class="footer-copy">&copy; <span id="year"></span> — All rights reserved</p>
