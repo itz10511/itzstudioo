@@ -15,8 +15,8 @@
   --light:     #aaaaaa;
   --accent:    #e8e0c8;
 
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-body:    'DM Sans', sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Mona Sans', 'DM Sans', sans-serif;
 
   --ease: cubic-bezier(0.76, 0, 0.24, 1);
   --dur:  0.85s;
@@ -138,8 +138,9 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
 }
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(5rem, 18vw, 18rem);
-  line-height: .86; letter-spacing: -.01em; margin-bottom: 2.5rem;
+  font-size: clamp(4rem, 14vw, 14rem);
+  font-weight: 900;
+  line-height: .88; letter-spacing: -.03em; margin-bottom: 2.5rem;
   position: relative; z-index: 2;
 }
 .hero-line { display: block; overflow: hidden; }
