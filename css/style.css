@@ -392,25 +392,86 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
 }
 .footer-sig-img.visible { opacity: 1; transform: translateY(0); }
 
-/* Filmstrip on about page */
-.filmstrip-wrap {
+/* Filmstrip scene on about page */
+.filmstrip-scene {
   position: relative;
   width: 100%;
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filmstrip-wrap {
+  position: relative;
+  transform: rotate(10deg);
+  transform-origin: center center;
+  z-index: 5;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,.7));
 }
 .filmstrip-img {
-  width: 100%;
-  max-width: 340px;
+  width: clamp(160px, 22vw, 300px);
   display: block;
-  border-radius: 2px;
-  box-shadow: 0 24px 80px rgba(0,0,0,.6), 0 4px 20px rgba(0,0,0,.4);
+  border-radius: 3px;
   filter: grayscale(0.08) contrast(1.06);
 }
 .about-sig {
   position: absolute;
-  bottom: -2rem; right: -1.5rem;
-  width: clamp(80px, 30%, 140px);
+  bottom: -2.5rem; right: -2rem;
+  width: clamp(80px, 35%, 130px);
   opacity: .9;
   filter: drop-shadow(0 1px 6px rgba(0,0,0,.5));
+}
+
+/* Decorative elements */
+.deco {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+.deco svg { display: block; }
+
+.deco-camera {
+  top: 2%;  right: 8%;
+  width: clamp(50px, 8vw, 90px);
+  animation: decoFloat 4s ease-in-out infinite;
+}
+.deco-swirl {
+  top: -2%; right: 2%;
+  width: clamp(80px, 13vw, 140px);
+  opacity: .85;
+  animation: decoSpin 18s linear infinite;
+}
+.deco-star {
+  top: 38%; left: 2%;
+  width: clamp(36px, 5vw, 60px);
+  animation: decoFloat 5s ease-in-out infinite reverse;
+}
+.deco-flower {
+  bottom: 2%; right: 4%;
+  width: clamp(55px, 8vw, 90px);
+  animation: decoSpin 10s linear infinite reverse;
+}
+.deco-reel {
+  top: 55%; right: 2%;
+  width: clamp(40px, 6vw, 70px);
+  animation: decoFloat 6s ease-in-out infinite;
+}
+
+@keyframes decoFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes decoSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.about-bio--intro {
+  font-size: 2rem;
+  opacity: .7;
+  margin-bottom: .25rem;
+  font-weight: 300;
 }
 
 /* Logo in footer */
