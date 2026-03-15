@@ -208,38 +208,42 @@ if (stripSection && stripTrack) {
   handleStrip();
 }
 
-// ── HERO SPOTLIGHT REVEAL ─────────────
-const heroSection   = document.getElementById('heroSection');
-const heroReveal    = document.querySelector('.hero-reveal-layer');
+// ── HERO BLOB SPOTLIGHT ───────────────
+const heroSection = document.getElementById('heroSection');
+const heroBlob    = document.querySelector('.hero-reveal-blob');
 
-if (heroSection && heroReveal) {
-  let spotX = 50, spotY = 50;
-  let curX  = 50, curY  = 50;
+if (heroSection && heroBlob) {
+  let targetX = 0, targetY = 0;
+  let curX    = 0, curY    = 0;
   let raf;
 
   const lerp = (a, b, t) => a + (b - a) * t;
 
-  const animSpot = () => {
-    curX = lerp(curX, spotX, 0.1);
-    curY = lerp(curY, spotY, 0.1);
-    heroReveal.style.clipPath = `circle(240px at ${curX}% ${curY}%)`;
-    raf = requestAnimationFrame(animSpot);
+  const animBlob = () => {
+    curX = lerp(curX, targetX, 0.08);
+    curY = lerp(curY, targetY, 0.08);
+    heroBlob.style.left = curX + 'px';
+    heroBlob.style.top  = curY + 'px';
+    raf = requestAnimationFrame(animBlob);
   };
 
-  heroSection.addEventListener('mouseenter', () => {
-    raf = requestAnimationFrame(animSpot);
+  heroSection.addEventListener('mouseenter', e => {
+    const rect = heroSection.getBoundingClientRect();
+    curX = targetX = e.clientX - rect.left;
+    curY = targetY = e.clientY - rect.top;
+    heroBlob.classList.add('active');
+    raf = requestAnimationFrame(animBlob);
   });
 
   heroSection.addEventListener('mousemove', e => {
     const rect = heroSection.getBoundingClientRect();
-    spotX = ((e.clientX - rect.left) / rect.width  * 100);
-    spotY = ((e.clientY - rect.top)  / rect.height * 100);
+    targetX = e.clientX - rect.left;
+    targetY = e.clientY - rect.top;
   });
 
   heroSection.addEventListener('mouseleave', () => {
+    heroBlob.classList.remove('active');
     cancelAnimationFrame(raf);
-    heroReveal.style.clipPath = 'circle(0px at 50% 50%)';
-    curX = 50; curY = 50;
   });
 }
 
