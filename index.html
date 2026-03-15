@@ -11,6 +11,9 @@
 </head>
 <body>
 
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
   <nav class="nav">
     <a href="index.html" class="nav-logo">iTZ.STUDiOO</a>
     <ul class="nav-links">
@@ -18,15 +21,15 @@
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button class="nav-hamburger" aria-label="menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-hamburger" aria-label="menu"><span></span><span></span><span></span></button>
   </nav>
 
-  <!-- HERO -->
+  <!-- ══ HERO ══════════════════════════════ -->
   <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-noise"></div>
     <p class="hero-eyebrow">Photography · Film · Video · Los Angeles</p>
-    <h1 class="hero-title">
+    <h1 class="hero-title" id="heroTitle">
       <span class="hero-line"><span>iTZ</span></span>
       <span class="hero-line"><span>.STUDiOO</span></span>
     </h1>
@@ -36,7 +39,7 @@
     </div>
   </section>
 
-  <!-- MARQUEE -->
+  <!-- ══ MARQUEE ════════════════════════════ -->
   <div class="marquee">
     <div class="marquee-inner">
       <span>PHOTO &nbsp;·&nbsp; FILM &nbsp;·&nbsp; VIDEO &nbsp;·&nbsp; LOS ANGELES &nbsp;·&nbsp; PHOTOGRAPHY &nbsp;·&nbsp; CREATIVE DIRECTION &nbsp;·&nbsp; VISUAL STORYTELLING &nbsp;·&nbsp; </span>
@@ -44,101 +47,224 @@
     </div>
   </div>
 
-  <!-- FEATURED WORK -->
-  <section class="featured">
-    <div class="featured-header">
-      <p class="eyebrow">Selected Work</p>
+  <!-- ══ PORTRAIT + SCROLL SHRINK ══════════ -->
+  <section class="portrait-section" id="portraitSection">
+    <div class="portrait-sticky">
+      <div class="portrait-strip strip-top">
+        <div class="portrait-strip-inner">
+          <span>CAPTURING MOMENTS</span><span>·</span><span>THROUGH THE LENS</span><span>·</span>
+          <span>CAPTURING MOMENTS</span><span>·</span><span>THROUGH THE LENS</span><span>·</span>
+          <span>CAPTURING MOMENTS</span><span>·</span><span>THROUGH THE LENS</span><span>·</span>
+        </div>
+      </div>
+      <div class="portrait-strip strip-bot">
+        <div class="portrait-strip-inner reverse">
+          <span>VISUAL POETRY</span><span>·</span><span>TELLING YOUR STORY</span><span>·</span>
+          <span>VISUAL POETRY</span><span>·</span><span>TELLING YOUR STORY</span><span>·</span>
+          <span>VISUAL POETRY</span><span>·</span><span>TELLING YOUR STORY</span><span>·</span>
+        </div>
+      </div>
+      <div class="portrait-wrap" id="portraitWrap">
+        <div class="portrait-img">
+          <div class="portrait-placeholder">
+            <!-- <img src="images/portrait.jpg" alt="iTZ.STUDiOO" /> -->
+          </div>
+        </div>
+        <svg class="portrait-sig" viewBox="0 0 380 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="sig-path" d="M 15,140 C 18,110 22,75 26,55 C 30,35 38,32 40,50 C 42,68 35,95 40,88 C 46,80 58,60 68,68 C 78,76 72,108 80,98 C 88,88 98,55 115,38 C 132,21 148,42 158,62 C 168,82 165,65 178,48 C 191,31 208,42 220,58 C 232,74 228,58 242,44 C 256,30 272,48 285,68 C 298,88 295,72 310,55 C 325,38 345,55 360,78 C 365,86 368,90 370,95" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ QUOTE ══════════════════════════════ -->
+  <section class="quote-section">
+    <div class="quote-bg"></div>
+    <div class="quote-noise"></div>
+    <blockquote class="quote-text" data-reveal>
+      <em>Capturing</em> moments,<br/>telling stories,<br/><em>defining</em> your vision.
+    </blockquote>
+  </section>
+
+  <!-- ══ HORIZONTAL PHOTO STRIP ════════════ -->
+  <section class="photo-strip-section" id="photoStripSection">
+    <div class="photo-strip-header">
+      <p class="eyebrow">On Set</p>
+      <p class="photo-strip-sub">A glimpse into the work</p>
+    </div>
+    <div class="photo-strip-overflow">
+      <div class="photo-strip-track" id="photoStripTrack">
+        <div class="photo-card">
+          <div class="photo-card-img"><div style="background:#141414; height:380px;"></div><!-- <img src="images/set-1.jpg" /> --></div>
+          <div class="photo-card-label"><span>LOS ANGELES, 2024</span><span>Photo</span></div>
+        </div>
+        <div class="photo-card">
+          <div class="photo-card-img"><div style="background:#1a1a1a; height:320px;"></div></div>
+          <div class="photo-card-label"><span>LOS ANGELES, 2024</span><span>Film</span></div>
+        </div>
+        <div class="photo-card">
+          <div class="photo-card-img"><div style="background:#111; height:400px;"></div></div>
+          <div class="photo-card-label"><span>LOS ANGELES, 2024</span><span>Video</span></div>
+        </div>
+        <div class="photo-card">
+          <div class="photo-card-img"><div style="background:#1e1e1e; height:350px;"></div></div>
+          <div class="photo-card-label"><span>LOS ANGELES, 2024</span><span>Photo</span></div>
+        </div>
+        <div class="photo-card">
+          <div class="photo-card-img"><div style="background:#181818; height:370px;"></div></div>
+          <div class="photo-card-label"><span>LOS ANGELES, 2024</span><span>Film</span></div>
+        </div>
+        <div class="photo-card">
+          <div class="photo-card-img"><div style="background:#161616; height:310px;"></div></div>
+          <div class="photo-card-label"><span>LOS ANGELES, 2024</span><span>Photo</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROJECT GRID (helmet-style) ═══════ -->
+  <section class="project-grid-section">
+    <div class="project-grid-header">
+      <p class="eyebrow">Projects</p>
       <a href="work.html" class="featured-link">View all →</a>
     </div>
-    <div class="featured-grid">
-
-      <div class="feat-item feat-tall" data-reveal>
-        <div class="feat-media">
-          <div class="feat-placeholder" style="background:#141414; height:580px;"></div>
-          <!-- <img src="images/photo-1.jpg" alt="Work" loading="lazy" /> -->
+    <div class="project-grid">
+      <div class="project-card" data-reveal>
+        <div class="project-card-img">
+          <div class="feat-layer base" style="background:#141414;"></div>
+          <div class="feat-layer reveal" style="background:#2a2010;"></div>
         </div>
-        <div class="feat-caption">
-          <span class="tag">Photo</span>
-          <p>Project Title</p>
-        </div>
+        <div class="project-card-footer"><span class="project-name">Project Title</span><span class="project-cat">Photo · 2024</span></div>
       </div>
-
-      <div class="feat-col">
-        <div class="feat-item" data-reveal>
-          <div class="feat-media">
-            <div class="feat-placeholder" style="background:#1a1a1a; height:280px;"></div>
-          </div>
-          <div class="feat-caption">
-            <span class="tag">Film</span>
-            <p>Project Title</p>
-          </div>
+      <div class="project-card" data-reveal>
+        <div class="project-card-img">
+          <div class="feat-layer base" style="background:#1a1a1a;"></div>
+          <div class="feat-layer reveal" style="background:#1e1810;"></div>
         </div>
-        <div class="feat-item" data-reveal>
-          <div class="feat-media">
-            <div class="feat-placeholder" style="background:#111; height:280px;"></div>
-          </div>
-          <div class="feat-caption">
-            <span class="tag">Video</span>
-            <p>Project Title</p>
-          </div>
+        <div class="project-card-footer"><span class="project-name">Project Title</span><span class="project-cat">Film · 2024</span></div>
+      </div>
+      <div class="project-card wide" data-reveal>
+        <div class="project-card-img">
+          <div class="feat-layer base" style="background:#111;"></div>
+          <div class="feat-layer reveal" style="background:#18160e;"></div>
         </div>
+        <div class="project-card-footer"><span class="project-name">Project Title</span><span class="project-cat">Video · 2024</span></div>
       </div>
-
-    </div>
-
-    <div class="feat-item feat-wide" data-reveal style="margin-top:1rem;">
-      <div class="feat-media">
-        <div class="feat-placeholder" style="background:#1e1e1e; height:320px;"></div>
+      <div class="project-card wide" data-reveal>
+        <div class="project-card-img">
+          <div class="feat-layer base" style="background:#1e1e1e;"></div>
+          <div class="feat-layer reveal" style="background:#282010;"></div>
+        </div>
+        <div class="project-card-footer"><span class="project-name">Project Title</span><span class="project-cat">Photo · 2024</span></div>
       </div>
-      <div class="feat-caption">
-        <span class="tag">Photo</span>
-        <p>Project Title</p>
+      <div class="project-card" data-reveal>
+        <div class="project-card-img">
+          <div class="feat-layer base" style="background:#181818;"></div>
+          <div class="feat-layer reveal" style="background:#201a0e;"></div>
+        </div>
+        <div class="project-card-footer"><span class="project-name">Project Title</span><span class="project-cat">Film · 2024</span></div>
+      </div>
+      <div class="project-card" data-reveal>
+        <div class="project-card-img">
+          <div class="feat-layer base" style="background:#161616;"></div>
+          <div class="feat-layer reveal" style="background:#1c1a0c;"></div>
+        </div>
+        <div class="project-card-footer"><span class="project-name">Project Title</span><span class="project-cat">Photo · 2024</span></div>
       </div>
     </div>
   </section>
 
-  <!-- STATEMENT -->
-  <section class="statement" data-reveal>
-    <p class="statement-text">
-      <em>Creating visuals</em><br/>that tell your story.
-    </p>
-    <a href="about.html" class="statement-link">About itz.studioo →</a>
+  <!-- ══ SOCIALS FAN CARDS ═════════════════ -->
+  <section class="socials-section">
+    <h2 class="socials-title">What's up<br/><em>on socials</em></h2>
+    <div class="socials-cards">
+      <div class="social-card">
+        <div class="social-card-img" style="background:#141414;"><!-- <img src="images/social-1.jpg" /> --></div>
+        <div class="social-card-overlay"><span>Instagram</span></div>
+      </div>
+      <div class="social-card">
+        <div class="social-card-img" style="background:#1a1a1a;"></div>
+        <div class="social-card-overlay"><span>TikTok</span></div>
+      </div>
+      <div class="social-card">
+        <div class="social-card-img" style="background:#111;"></div>
+        <div class="social-card-overlay"><span>Instagram</span></div>
+      </div>
+      <div class="social-card">
+        <div class="social-card-img" style="background:#1e1e1e;"></div>
+        <div class="social-card-overlay"><span>TikTok</span></div>
+      </div>
+      <div class="social-card">
+        <div class="social-card-img" style="background:#181818;"></div>
+        <div class="social-card-overlay"><span>Instagram</span></div>
+      </div>
+    </div>
+    <div class="socials-links">
+      <a href="https://www.instagram.com/ivilla.11/" target="_blank" rel="noopener">Instagram ↗</a>
+      <a href="https://www.tiktok.com/@ivilla" target="_blank" rel="noopener">TikTok ↗</a>
+      <a href="contact.html">Contact Me ↗</a>
+    </div>
   </section>
 
-  <!-- SERVICES BAND -->
-  <div class="services-band">
-    <div class="service-item" data-reveal>
-      <span class="service-num">01</span>
-      <h3>Photography</h3>
-      <p>Editorial, portrait, event, and commercial photography.</p>
-    </div>
-    <div class="service-item" data-reveal>
-      <span class="service-num">02</span>
-      <h3>Film</h3>
-      <p>Cinematic short-form and long-form film production.</p>
-    </div>
-    <div class="service-item" data-reveal>
-      <span class="service-num">03</span>
-      <h3>Video</h3>
-      <p>Social content, reels, and branded video production.</p>
-    </div>
-  </div>
+  <!-- ══ FOOTER HERO ════════════════════════ -->
+  <section class="footer-hero">
+    <div class="footer-hero-bg"></div>
+    <div class="footer-hero-noise"></div>
 
-  <!-- CTA -->
-  <section class="cta-band" data-reveal>
-    <p class="eyebrow">Ready to create?</p>
-    <h2 class="cta-title">Let's work<br/><em>together.</em></h2>
-    <a href="contact.html" class="btn-primary">Get in touch →</a>
+    <svg class="footer-sig-svg" viewBox="0 0 380 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="sig-path footer-sig-path" d="M 15,140 C 18,110 22,75 26,55 C 30,35 38,32 40,50 C 42,68 35,95 40,88 C 46,80 58,60 68,68 C 78,76 72,108 80,98 C 88,88 98,55 115,38 C 132,21 148,42 158,62 C 168,82 165,65 178,48 C 191,31 208,42 220,58 C 232,74 228,58 242,44 C 256,30 272,48 285,68 C 298,88 295,72 310,55 C 325,38 345,55 360,78" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+    <h2 class="footer-tagline">Always telling<br/><em>the story.</em></h2>
+
+    <div class="footer-portrait-wrap">
+      <div class="footer-portrait-placeholder">
+        <!-- <img src="images/portrait-footer.jpg" alt="iTZ.STUDiOO" /> -->
+      </div>
+    </div>
+
+    <!-- Partner logos strip -->
+    <div class="partner-strip">
+      <div class="partner-strip-inner">
+        <span>PHOTOGRAPHY</span><span>·</span>
+        <span>FILM PRODUCTION</span><span>·</span>
+        <span>CREATIVE DIRECTION</span><span>·</span>
+        <span>LOS ANGELES</span><span>·</span>
+        <span>BRAND CONTENT</span><span>·</span>
+        <span>EVENTS</span><span>·</span>
+        <span>PHOTOGRAPHY</span><span>·</span>
+        <span>FILM PRODUCTION</span><span>·</span>
+        <span>CREATIVE DIRECTION</span><span>·</span>
+        <span>LOS ANGELES</span><span>·</span>
+        <span>BRAND CONTENT</span><span>·</span>
+        <span>EVENTS</span><span>·</span>
+      </div>
+    </div>
+
+    <!-- Nav grid -->
+    <div class="footer-nav-grid">
+      <div class="footer-nav-col">
+        <p class="footer-col-label">Pages</p>
+        <a href="index.html">Home</a>
+        <a href="work.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-nav-col center">
+        <a href="mailto:itz.studio11@gmail.com" class="business-btn">Business Enquiries ↗</a>
+      </div>
+      <div class="footer-nav-col right">
+        <p class="footer-col-label">Follow On</p>
+        <a href="https://www.instagram.com/ivilla.11/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@ivilla" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <p>&copy; <span id="year"></span> iTZ.STUDiOO. All rights reserved.</p>
+      <p>itz.studio11@gmail.com</p>
+    </div>
   </section>
-
-  <footer class="footer">
-    <p class="footer-logo">iTZ.STUDiOO</p>
-    <p class="footer-copy">&copy; <span id="year"></span> — All rights reserved</p>
-    <div class="footer-socials">
-      <a href="https://www.instagram.com/ivilla.11/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.tiktok.com/@ivilla" target="_blank" rel="noopener">TikTok</a>
-    </div>
-  </footer>
 
   <script src="js/main.js"></script>
 </body>
