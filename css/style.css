@@ -117,7 +117,12 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
   border-bottom: 1px solid rgba(240,234,214,.06);
 }
 .nav-logo { display: flex; align-items: center; }
-.nav-logo img { height: 72px; width: auto; display: block; }
+.nav-logo img {
+  height: 72px; width: auto; display: block;
+  filter: grayscale(1) brightness(1.1);
+  transition: filter .4s ease;
+}
+.nav-logo:hover img { filter: grayscale(0) brightness(1); }
 .nav-links { display: flex; gap: 2.5rem; }
 .nav-links a { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; opacity: .5; transition: opacity .25s, color .25s; }
 .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--lime); }
@@ -143,8 +148,8 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
 .hero-bg {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse at 12% 88%, rgba(55,38,8,.45) 0%, transparent 52%),
-    radial-gradient(ellipse at 88% 12%, rgba(8,14,42,.3) 0%, transparent 50%);
+    radial-gradient(ellipse at 15% 90%, rgba(160,0,0,.28) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 10%, rgba(80,0,0,.15) 0%, transparent 50%);
   animation: bgDrift 12s ease-in-out infinite alternate;
   pointer-events: none;
 }
@@ -240,8 +245,8 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
 .quote-bg {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse at 25% 65%, rgba(45,30,5,.4) 0%, transparent 58%),
-    radial-gradient(ellipse at 75% 25%, rgba(8,18,40,.3) 0%, transparent 52%);
+    radial-gradient(ellipse at 20% 70%, rgba(160,0,0,.22) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 30%, rgba(60,0,0,.18) 0%, transparent 50%);
   animation: bgDrift 14s ease-in-out infinite alternate-reverse; pointer-events: none;
 }
 .quote-text {
@@ -348,8 +353,8 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
 .footer-hero-bg {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse at 20% 80%, rgba(45,28,5,.5) 0%, transparent 55%),
-    radial-gradient(ellipse at 80% 20%, rgba(5,10,35,.3) 0%, transparent 50%);
+    radial-gradient(ellipse at 18% 85%, rgba(160,0,0,.3) 0%, transparent 55%),
+    radial-gradient(ellipse at 82% 15%, rgba(80,0,0,.15) 0%, transparent 50%);
   animation: bgDrift 16s ease-in-out infinite alternate; pointer-events: none;
 }
 .footer-sig-svg { width: clamp(100px, 14vw, 180px); margin-bottom: 1rem; position: relative; z-index: 2; }
@@ -486,9 +491,14 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
   height: auto;
   display: block;
   margin: 0 auto;
-  opacity: .92;
-  mix-blend-mode: luminosity;
-  filter: sepia(0.3) saturate(1.4);
+  opacity: .85;
+  filter: grayscale(1) brightness(1.1);
+  transition: filter .4s ease, opacity .4s ease;
+  cursor: pointer;
+}
+.footer-logo-img:hover {
+  filter: grayscale(0) brightness(1);
+  opacity: 1;
 }
 
 /* Footer nav grid */
