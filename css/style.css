@@ -523,25 +523,25 @@ ul { list-style: none; }
 .deco svg { display: block; }
 
 .deco-camera {
-  top: 2%;  right: 8%;
+  top: 18%; left: 4%;
   width: clamp(50px, 8vw, 90px);
   animation: decoFloat 4s ease-in-out infinite;
 }
 .deco-swirl {
-  top: -2%; right: 2%;
+  bottom: 22%; right: 4%;
   width: clamp(80px, 13vw, 140px);
   opacity: .85;
   animation: decoSpin 18s linear infinite;
 }
 .deco-star {
-  top: 38%; left: 2%;
+  top: 8%; right: 6%;
   width: clamp(36px, 5vw, 60px);
   animation: decoFloat 5s ease-in-out infinite reverse;
 }
-.deco-flower {
-  bottom: 2%; right: 4%;
-  width: clamp(55px, 8vw, 90px);
-  animation: decoSpin 10s linear infinite reverse;
+.deco-star2 {
+  bottom: 8%; left: 4%;
+  width: clamp(28px, 4vw, 50px);
+  animation: decoFloat 6s ease-in-out infinite;
 }
 .deco-reel {
   top: 55%; right: 2%;
