@@ -264,18 +264,13 @@ if (heroTitle) {
 (function() {
   const grid     = document.getElementById('projectsGrid');
   const lightbox = document.getElementById('lightbox');
+  const detail   = document.getElementById('projDetail');
   if (!grid || !lightbox || typeof PROJECTS === 'undefined') return;
 
-  let lbProject = null;
-  let lbIndex   = 0;
-
-  // ── Render cards ──
-  function renderCards(filter) {
-    const filtered = filter === 'all'
-      ? PROJECTS
-      : PROJECTS.filter(p => p.category.includes(filter));
-
-    grid.innerHTML = filtered.map(p => `
+  // ── Render project cards (Projects tab) ──
+  function renderProjects() {
+    grid.classList.remove('gallery-mode');
+    grid.innerHTML = PROJECTS.map(p => `
       <div class="proj-card" data-id="${p.id}">
         <div class="proj-cover">
           ${p.cover
@@ -289,43 +284,86 @@ if (heroTitle) {
         </div>
       </div>
     `).join('');
-
     grid.querySelectorAll('.proj-card').forEach(card => {
-      card.addEventListener('click', () => openLightbox(card.dataset.id));
+      card.addEventListener('click', () => openProjectDetail(card.dataset.id));
       card.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
       card.addEventListener('mouseleave',  () => document.body.classList.remove('cursor-hover'));
     });
   }
 
-  // ── Lightbox ──
-  function openLightbox(id) {
-    lbProject = PROJECTS.find(p => p.id === id);
-    if (!lbProject) return;
-    lbIndex = 0;
-    showItem();
-    lightbox.classList.add('active');
-    lightbox.setAttribute('aria-hidden', 'false');
+  // ── Render curated gallery (Pictures / Film Photos / Video tabs) ──
+  function renderGallery(filter) {
+    if (typeof GALLERY === 'undefined' || !GALLERY[filter] || !GALLERY[filter].length) return;
+    grid.classList.add('gallery-mode');
+    grid.innerHTML = GALLERY[filter].map((item, i) => {
+      if (item.type === 'img') {
+        return `<div class="gallery-item" data-index="${i}">
+          <img src="${item.src}" alt="" loading="lazy" />
+        </div>`;
+      } else if (item.type === 'vimeo') {
+        return `<div class="gallery-item gallery-item--video" data-index="${i}">
+          <img src="https://vumbnail.com/${item.id}.jpg" alt="" loading="lazy" />
+        </div>`;
+      }
+      return '';
+    }).join('');
+    grid.querySelectorAll('.gallery-item').forEach(el => {
+      el.addEventListener('click', () => openSingleItem(GALLERY[filter][+el.dataset.index]));
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave',  () => document.body.classList.remove('cursor-hover'));
+    });
+  }
+
+  // ── Project detail grid overlay ──
+  function openProjectDetail(id) {
+    if (!detail) return;
+    const project = PROJECTS.find(p => p.id === id);
+    if (!project) return;
+    document.querySelector('.proj-detail-name').textContent = project.name;
+    const dGrid = document.getElementById('projDetailGrid');
+    dGrid.innerHTML = project.items.map((item, i) => {
+      if (item.type === 'img') {
+        return `<div class="gallery-item" data-index="${i}">
+          <img src="${item.src}" alt="" loading="lazy" />
+        </div>`;
+      } else if (item.type === 'vimeo') {
+        return `<div class="gallery-item gallery-item--video" data-index="${i}">
+          <img src="https://vumbnail.com/${item.id}.jpg" alt="" loading="lazy" />
+        </div>`;
+      } else if (item.type === 'video') {
+        return `<div class="gallery-item gallery-item--video" data-index="${i}"></div>`;
+      }
+      return '';
+    }).join('');
+    dGrid.querySelectorAll('.gallery-item').forEach(el => {
+      el.addEventListener('click', () => openSingleItem(project.items[+el.dataset.index]));
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave',  () => document.body.classList.remove('cursor-hover'));
+    });
+    detail.classList.add('active');
+    detail.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   }
 
-  function closeLightbox() {
-    lightbox.classList.remove('active');
-    lightbox.setAttribute('aria-hidden', 'true');
+  function closeProjectDetail() {
+    if (!detail) return;
+    detail.classList.remove('active');
+    detail.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    document.querySelector('.lb-media').innerHTML = '';
+    document.getElementById('projDetailGrid').innerHTML = '';
   }
 
-  function showItem() {
-    const item    = lbProject.items[lbIndex];
-    const media   = document.querySelector('.lb-media');
-    const title   = document.querySelector('.lb-title');
-    const counter = document.querySelector('.lb-counter');
-    title.textContent   = lbProject.name;
-    counter.textContent = `${lbIndex + 1} / ${lbProject.items.length}`;
+  if (detail) {
+    document.querySelector('.proj-detail-close').addEventListener('click', closeProjectDetail);
+  }
+
+  // ── Single-item lightbox ──
+  function openSingleItem(item) {
+    const media = document.querySelector('.lb-media');
     media.innerHTML = '';
     if (item.type === 'img') {
       const el = document.createElement('img');
-      el.src = item.src; el.alt = lbProject.name;
+      el.src = item.src;
       media.appendChild(el);
     } else if (item.type === 'vimeo') {
       const el = document.createElement('iframe');
@@ -339,36 +377,41 @@ if (heroTitle) {
       el.controls = true; el.playsInline = true;
       media.appendChild(el);
     }
+    lightbox.classList.add('active', 'lb-single');
+    lightbox.setAttribute('aria-hidden', 'false');
+    if (!detail || !detail.classList.contains('active')) {
+      document.body.style.overflow = 'hidden';
+    }
   }
 
-  function navigate(dir) {
-    lbIndex = (lbIndex + dir + lbProject.items.length) % lbProject.items.length;
-    showItem();
+  function closeLightbox() {
+    lightbox.classList.remove('active', 'lb-single');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.querySelector('.lb-media').innerHTML = '';
+    if (!detail || !detail.classList.contains('active')) {
+      document.body.style.overflow = '';
+    }
   }
 
-  // Events
   document.querySelector('.lb-close').addEventListener('click', closeLightbox);
-  document.querySelector('.lb-prev').addEventListener('click', () => navigate(-1));
-  document.querySelector('.lb-next').addEventListener('click', () => navigate(1));
-  lightbox.addEventListener('click', e => { if (e.target === lightbox || e.target.classList.contains('lb-body')) closeLightbox(); });
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox || e.target.classList.contains('lb-body')) closeLightbox();
+  });
   document.addEventListener('keydown', e => {
-    if (!lightbox.classList.contains('active')) return;
-    if (e.key === 'ArrowLeft')  navigate(-1);
-    if (e.key === 'ArrowRight') navigate(1);
-    if (e.key === 'Escape')     closeLightbox();
+    if (lightbox.classList.contains('active') && e.key === 'Escape') { closeLightbox(); return; }
+    if (detail && detail.classList.contains('active') && e.key === 'Escape') closeProjectDetail();
   });
 
-  // Filter buttons
+  // ── Filter buttons ──
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const f = btn.dataset.filter;
-      // Map tab filter values to category values
-      const catMap = { all: 'all', photo: 'photo', film: 'film', video: 'video' };
-      renderCards(catMap[f] || 'all');
+      if (f === 'all') renderProjects();
+      else renderGallery(f);
     });
   });
 
-  renderCards('all'); // initial render
+  renderProjects(); // initial render
 })();

@@ -307,3 +307,115 @@ window.PROJECTS = [
   },
 
 ];
+
+/* ═══════════════════════════════════════
+   Curated gallery for Pictures / Film Photos / Video tabs
+   Hand-picked to show range + impress EDM clients
+   ═══════════════════════════════════════ */
+window.GALLERY = {
+
+  photo: [
+    // DIØN
+    img('v1773630222/DSC01096_scgnpu.jpg'),
+    img('v1773630221/DSC01516_dfqye6.jpg'),
+    img('v1773630219/DSC01320_fvilnt.jpg'),
+    img('v1773630217/DSC01039_rlnp7g.jpg'),
+    // Seismic
+    img('v1773633505/mochakk3_p46cmx.jpg'),
+    img('v1773633503/crowd1_kjc89c.jpg'),
+    img('v1773633502/funkyy_qxi3n8.jpg'),
+    img('v1773633500/funk1_vh29g5.jpg'),
+    img('v1773633497/mochakk_ma4u3q.jpg'),
+    // Beatport — Beltran
+    img('v1773630578/DSC07103_lpic2p.jpg'),
+    img('v1773630577/DSC07176_mxwwgi.jpg'),
+    img('v1773630574/DSC07216_oh7ffb.jpg'),
+    // Beatport — Cole
+    img('v1773630233/DSC06881_aowrm4.jpg'),
+    img('v1773630230/DSC06837_ozi8qr.jpg'),
+    // Elliot & Liam
+    img('v1773633472/DSC07061_t1fkpg.jpg'),
+    img('v1773633469/DSC06833_ixwpgo.jpg'),
+    img('v1773633470/DSC06641_n01mq4.jpg'),
+    // Ranger Trucco
+    img('v1773633465/DSC08900_bx5bez.jpg'),
+    img('v1773633460/DSC09614_mkoovr.jpg'),
+    img('v1773633459/DSC00259_gqbh7j.jpg'),
+    img('v1773633455/DSC00305_fsclhh.jpg'),
+    // SXTCY
+    img('v1773630161/DSC00607_f2xj1s.jpg'),
+    img('v1773630159/DSC00643_ntuxot.jpg'),
+    img('v1773630157/DSC00619_vpsnzv.jpg'),
+    // Ian Asher
+    img('v1773630210/DSC03597_s3rcqy.jpg'),
+    img('v1773630209/DSC03309_gknta0.jpg'),
+    img('v1773630207/DSC04319_fwwi7p.jpg'),
+    // TOMA
+    img('v1773630202/DSC06708_t9ju3c.jpg'),
+    img('v1773630196/DSC06025_nwzdam.jpg'),
+    img('v1773630200/DSC05148_zujtbs.jpg'),
+  ],
+
+  film: [
+    // Seismic
+    img('v1773633632/IMG_6294_d8qndo.jpg'),
+    img('v1773633629/IMG_6274_cisz5t.jpg'),
+    img('v1773633624/IMG_6285_zkbtxa.jpg'),
+    img('v1773633625/IMG_6224_z9rkel.jpg'),
+    img('v1773633602/IMG_6261_wspbfp.jpg'),
+    // Countdown
+    img('v1773636173/IMG_9233_pygfni.jpg'),
+    img('v1773636173/IMG_9219_bwyn9m.jpg'),
+    img('v1773636173/IMG_9206_jppjfd.jpg'),
+    img('v1773636173/IMG_9204_gvuzad.jpg'),
+    // Skyline
+    img('v1773634511/IMG_1947_ureyul.jpg'),
+    img('v1773634509/IMG_1842_wvtsug.jpg'),
+    img('v1773634503/IMG_1921_wgbqev.jpg'),
+    img('v1773634498/IMG_1869_zpciay.jpg'),
+    img('v1773634496/IMG_1941_bje394.jpg'),
+    img('v1773634492/IMG_1775_ilkl5t.jpg'),
+    // Ian Asher
+    img('v1773634668/IMG_2595_cbhbec.jpg'),
+    img('v1773634664/IMG_2631_wpfm8m.jpg'),
+    img('v1773634660/IMG_2626_yj9whj.jpg'),
+    img('v1773634653/IMG_2610_v9tae4.jpg'),
+    img('v1773634651/IMG_2580_etu2g4.jpg'),
+    img('v1773634646/IMG_2633_xvmvwh.jpg'),
+    // Beatport BTS
+    img('v1773634540/IMG_1876_2_ki1xke.jpg'),
+    img('v1773634534/IMG_1911_b0fd20.jpg'),
+    img('v1773634521/IMG_1885_iwtfxt.jpg'),
+    img('v1773634528/IMG_1897_l7fmer.jpg'),
+    img('v1773634515/IMG_1913_mrmkip.jpg'),
+  ],
+
+  video: [
+    // DIØN
+    vimeo(1173874014),
+    vimeo(1173874092),
+    vimeo(1173873825),
+    vimeo(1173873885),
+    vimeo(1173873939),
+    // Southstarr @ Seismic
+    vimeo(1173886007),
+    vimeo(1173885924),
+    vimeo(1173885835),
+    // Countdown
+    vimeo(1173874341),
+    vimeo(1173874616),
+    vimeo(1173874268),
+    // Beatport — Beltran
+    vimeo(1173873417),
+    vimeo(1173873368),
+    // Beatport — Cole
+    vimeo(1173873719),
+    vimeo(1173873601),
+    // Elliot & Liam
+    vimeo(1173885497),
+    vimeo(1173885477),
+    // SXTCY
+    vimeo(1173874633),
+  ],
+
+};
