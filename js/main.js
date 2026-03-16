@@ -270,11 +270,24 @@ filterBtns.forEach(btn => {
     btn.classList.add('active');
     const filter = btn.dataset.filter;
     gridItems.forEach(item => {
-      if (filter === 'all' || item.dataset.category === filter) {
-        item.classList.remove('hidden');
+      let show = false;
+      if (filter === 'all') {
+        show = true;
+      } else if (filter === 'photo') {
+        show = item.dataset.category === 'photo';
+      } else if (filter === 'film') {
+        // Film stills = video-category items with only an img (no iframe/video)
+        show = item.dataset.category === 'video'
+          && !!item.querySelector('img')
+          && !item.querySelector('iframe, video');
+      } else if (filter === 'video') {
+        // Actual video embeds = video-category items with iframe or video tag
+        show = item.dataset.category === 'video'
+          && !!(item.querySelector('iframe') || item.querySelector('video'));
       } else {
-        item.classList.add('hidden');
+        show = item.dataset.category === filter;
       }
+      item.classList.toggle('hidden', !show);
     });
   });
 });
