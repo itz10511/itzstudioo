@@ -293,15 +293,19 @@ if (heroTitle) {
 
   // ── Render curated gallery (Pictures / Film Photos / Video tabs) ──
   function renderGallery(filter) {
-    if (typeof GALLERY === 'undefined' || !GALLERY[filter] || !GALLERY[filter].length) return;
+    if (typeof GALLERY === 'undefined') return;
+    if (filter === 'video') { renderVideoFolders(); return; }
+    if (!GALLERY[filter] || !GALLERY[filter].length) return;
     grid.classList.add('gallery-mode');
+    grid.classList.remove('video-folders-mode');
     grid.innerHTML = GALLERY[filter].map((item, i) => {
       if (item.type === 'img') {
         return `<div class="gallery-item" data-index="${i}">
           <img src="${item.src}" alt="" loading="lazy" />
         </div>`;
       } else if (item.type === 'vimeo') {
-        return `<div class="gallery-item gallery-item--video" data-index="${i}">
+        const oc = item.orient === 'h' ? 'gallery-item--horiz' : 'gallery-item--vert';
+        return `<div class="gallery-item gallery-item--video ${oc}" data-index="${i}">
           <img src="https://vumbnail.com/${item.id}.jpg" alt="" loading="lazy" />
         </div>`;
       }
@@ -309,6 +313,66 @@ if (heroTitle) {
     }).join('');
     grid.querySelectorAll('.gallery-item').forEach(el => {
       el.addEventListener('click', () => openSingleItem(GALLERY[filter][+el.dataset.index]));
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave',  () => document.body.classList.remove('cursor-hover'));
+    });
+  }
+
+  // ── Video folder views ──
+  function renderVideoFolders() {
+    if (typeof GALLERY === 'undefined' || !GALLERY.video) return;
+    grid.classList.remove('gallery-mode');
+    grid.classList.add('video-folders-mode');
+    const multicam   = GALLERY.video.filter(v => v.multicam);
+    const singlecam  = GALLERY.video.filter(v => !v.multicam);
+    const mcThumb    = multicam.find(v => v.type === 'vimeo');
+    const scThumb    = singlecam.find(v => v.type === 'vimeo');
+    grid.innerHTML = `
+      <div class="video-folder-card" data-folder="multicam">
+        <div class="video-folder-thumb">
+          ${mcThumb ? `<img src="https://vumbnail.com/${mcThumb.id}.jpg" alt="" loading="lazy" />` : ''}
+          <span class="video-folder-play">▶</span>
+        </div>
+        <div class="video-folder-meta">
+          <span class="video-folder-name">Multicam</span>
+          <span class="video-folder-count">${multicam.length} videos</span>
+        </div>
+      </div>
+      <div class="video-folder-card" data-folder="singlecam">
+        <div class="video-folder-thumb">
+          ${scThumb ? `<img src="https://vumbnail.com/${scThumb.id}.jpg" alt="" loading="lazy" />` : ''}
+          <span class="video-folder-play">▶</span>
+        </div>
+        <div class="video-folder-meta">
+          <span class="video-folder-name">Single Cam</span>
+          <span class="video-folder-count">${singlecam.length} videos</span>
+        </div>
+      </div>
+    `;
+    grid.querySelectorAll('.video-folder-card').forEach(card => {
+      card.addEventListener('click', () => openVideoFolder(card.dataset.folder));
+    });
+  }
+
+  function openVideoFolder(folder) {
+    const videos = GALLERY.video.filter(v => folder === 'multicam' ? v.multicam : !v.multicam);
+    grid.classList.add('gallery-mode');
+    grid.classList.remove('video-folders-mode');
+    grid.innerHTML = `<button class="video-folder-back" id="videoFolderBack">← Back to folders</button>
+      ${videos.map((item, i) => {
+        if (item.type === 'vimeo') {
+          const oc = item.orient === 'h' ? 'gallery-item--horiz' : 'gallery-item--vert';
+          return `<div class="gallery-item gallery-item--video ${oc}" data-index="${i}">
+            <img src="https://vumbnail.com/${item.id}.jpg" alt="" loading="lazy" />
+          </div>`;
+        } else if (item.type === 'video') {
+          return `<div class="gallery-item gallery-item--video gallery-item--horiz" data-index="${i}"></div>`;
+        }
+        return '';
+      }).join('')}`;
+    document.getElementById('videoFolderBack').addEventListener('click', renderVideoFolders);
+    grid.querySelectorAll('.gallery-item').forEach(el => {
+      el.addEventListener('click', () => openSingleItem(videos[+el.dataset.index]));
       el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
       el.addEventListener('mouseleave',  () => document.body.classList.remove('cursor-hover'));
     });
@@ -327,7 +391,8 @@ if (heroTitle) {
           <img src="${item.src}" alt="" loading="lazy" />
         </div>`;
       } else if (item.type === 'vimeo') {
-        return `<div class="gallery-item gallery-item--video" data-index="${i}">
+        const oc = item.orient === 'h' ? 'gallery-item--horiz' : 'gallery-item--vert';
+        return `<div class="gallery-item gallery-item--video ${oc}" data-index="${i}">
           <img src="https://vumbnail.com/${item.id}.jpg" alt="" loading="lazy" />
         </div>`;
       } else if (item.type === 'video') {
@@ -370,6 +435,7 @@ if (heroTitle) {
       el.src = `https://player.vimeo.com/video/${item.id}?autoplay=1&title=0&byline=0&portrait=0`;
       el.allow = 'autoplay; fullscreen; picture-in-picture';
       el.allowFullscreen = true;
+      if (item.orient === 'v') el.classList.add('lb-iframe--vert');
       media.appendChild(el);
     } else if (item.type === 'video') {
       const el = document.createElement('video');
@@ -414,4 +480,12 @@ if (heroTitle) {
   });
 
   renderProjects(); // initial render
+
+  // ── Auto-open project from URL hash (links from homepage) ──
+  if (window.location.hash) {
+    const id = window.location.hash.slice(1);
+    if (PROJECTS.find(p => p.id === id)) {
+      setTimeout(() => openProjectDetail(id), 120);
+    }
+  }
 })();
