@@ -536,6 +536,7 @@ ul { list-style: none; }
 }
 .deco-star        { top: 8%;    right: 6%;  width: clamp(36px,5vw,58px);  animation: decoFloat 5s ease-in-out infinite reverse; }
 .deco-star-bottom { bottom: 12%; right: 10%; width: clamp(28px,4vw,46px);  animation: decoFloat 6.5s ease-in-out infinite; }
+.deco-star-left   { top: 42%;   left: 4%;   width: clamp(30px,4.5vw,52px); animation: decoFloat 7s ease-in-out infinite reverse; }
 .deco-reel {
   top: 55%; right: 2%;
   width: clamp(40px, 6vw, 70px);
