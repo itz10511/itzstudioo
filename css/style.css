@@ -757,6 +757,7 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
 .masonry-grid .grid-item.hidden { display: none; }
 .video-thumb { position: relative; width: 100%; }
 .video-thumb iframe { width: 100%; aspect-ratio: 16/9; border: none; }
+.grid-item img, .grid-item video { width: 100%; display: block; object-fit: cover; }
 
 /* ABOUT */
 .about-section { min-height: 100svh; padding: calc(var(--nav-h) + 4rem) var(--pad) 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
