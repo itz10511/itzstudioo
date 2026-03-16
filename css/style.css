@@ -533,16 +533,13 @@ ul { list-style: none; }
   opacity: .85;
   animation: decoSpin 18s linear infinite;
 }
-.deco-star {
-  top: 8%; right: 6%;
-  width: clamp(36px, 5vw, 60px);
-  animation: decoFloat 5s ease-in-out infinite reverse;
-}
-.deco-star2 {
-  bottom: 8%; left: 4%;
-  width: clamp(28px, 4vw, 50px);
-  animation: decoFloat 6s ease-in-out infinite;
-}
+.deco-star  { top: 8%;    right: 6%;  width: clamp(36px,5vw,58px);  animation: decoFloat 5s ease-in-out infinite reverse; }
+.deco-star2 { bottom: 8%; left: 4%;   width: clamp(30px,4vw,50px);  animation: decoFloat 6s ease-in-out infinite; }
+.deco-star3 { top: 12%;   left: 8%;   width: clamp(28px,4vw,46px);  animation: decoFloat 4.5s ease-in-out infinite; }
+.deco-star4 { top: 48%;   right: 3%;  width: clamp(22px,3vw,36px);  animation: decoFloat 7s ease-in-out infinite reverse; }
+.deco-star5 { bottom: 18%; right: 8%; width: clamp(38px,6vw,64px);  animation: decoFloat 5.5s ease-in-out infinite; }
+.deco-star6 { top: 62%;   left: 2%;   width: clamp(24px,3.5vw,40px);animation: decoFloat 8s ease-in-out infinite reverse; }
+.deco-star7 { top: 2%;    left: 38%;  width: clamp(18px,2.5vw,30px);animation: decoFloat 4s ease-in-out infinite; }
 .deco-reel {
   top: 55%; right: 2%;
   width: clamp(40px, 6vw, 70px);
