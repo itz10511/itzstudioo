@@ -137,7 +137,7 @@ window.PROJECTS = [
     id: 'elliot-liam-sound',
     name: 'Elliot Schooling & Liam Palmer @ Sound LA',
     category: ['photo', 'video'],
-    year: 2024,
+    year: 2025,
     cover: CDN('v1773633467/DSC06074_exwvvh.jpg'),
     items: [
       vimeo(1173885497),
@@ -155,7 +155,7 @@ window.PROJECTS = [
     id: 'ranger-trucco',
     name: 'Ranger Trucco @ Avalon LA',
     category: ['photo'],
-    year: 2024,
+    year: 2025,
     cover: CDN('v1773633456/DSC00161_srsn5r.jpg'),
     items: [
       img('v1773633465/DSC08900_bx5bez.jpg'),
