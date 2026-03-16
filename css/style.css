@@ -962,24 +962,27 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
 
 /* =====================
    GALLERY GRID (Pictures / Film / Video tabs)
+   Masonry columns — natural aspect ratios, no cropping
    ===================== */
 .projects-grid.gallery-mode {
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
+  display: block;
+  columns: 4;
+  column-gap: 5px;
 }
 .gallery-item {
   position: relative;
-  aspect-ratio: 1;
   overflow: hidden;
   cursor: none;
   background: var(--dark);
+  break-inside: avoid;
+  margin-bottom: 5px;
 }
 .gallery-item img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
+  width: 100%; height: auto;
+  display: block;
   transition: transform 0.5s var(--ease);
 }
-.gallery-item:hover img { transform: scale(1.05); }
+.gallery-item:hover img { transform: scale(1.03); }
 .gallery-item--video::after {
   content: '▶';
   position: absolute; inset: 0;
@@ -1019,10 +1022,8 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
 .proj-detail-grid {
   flex: 1; overflow-y: auto;
   padding: 1.5rem var(--pad);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
-  align-content: start;
+  columns: 4;
+  column-gap: 5px;
 }
 
 /* hide prev/next when viewing single item */
@@ -1032,14 +1033,14 @@ body.cursor-hover .cursor-ring { width: 64px; height: 64px; border-color: rgba(2
 
 @media (max-width: 860px) {
   .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-  .projects-grid.gallery-mode { grid-template-columns: repeat(3, 1fr); }
-  .proj-detail-grid { grid-template-columns: repeat(3, 1fr); }
+  .projects-grid.gallery-mode { columns: 3; }
+  .proj-detail-grid { columns: 3; }
   .lb-body { padding: 1rem 3.5rem; }
   .lb-prev { left: 0.5rem; }
   .lb-next { right: 0.5rem; }
 }
 @media (max-width: 480px) {
   .projects-grid { grid-template-columns: 1fr; }
-  .projects-grid.gallery-mode { grid-template-columns: repeat(2, 1fr); }
-  .proj-detail-grid { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid.gallery-mode { columns: 2; }
+  .proj-detail-grid { columns: 2; }
 }
