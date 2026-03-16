@@ -168,7 +168,7 @@ ul { list-style: none; }
    HERO
    ===================== */
 .hero {
-  height: 100svh; min-height: 640px;
+  height: 84svh; min-height: 580px;
   display: flex; flex-direction: column;
   padding: 0 var(--pad) 3rem;
   position: relative; overflow: hidden;
@@ -1122,18 +1122,18 @@ ul { list-style: none; }
   .socials-title { font-size: clamp(2.5rem, 9vw, 4rem); margin-bottom: 2.5rem; }
   .socials-cards { height: 280px; }
   .social-card { width: clamp(120px, 28vw, 160px); }
-  /* default fan */
-  .social-card:nth-child(1) { transform: rotate(-22deg) translateX(-100px); }
+  /* default fan — vw-based so it scales on any phone width */
+  .social-card:nth-child(1) { transform: rotate(-22deg) translateX(-26vw); }
   .social-card:nth-child(2) { transform: rotate(0deg); }
-  .social-card:nth-child(3) { transform: rotate(22deg) translateX(100px); }
+  .social-card:nth-child(3) { transform: rotate(22deg) translateX(26vw); }
   /* container hover: freeze fan so cards don't fly off-screen on touch */
-  .socials-cards:hover .social-card:nth-child(1) { transform: rotate(-22deg) translateX(-100px); }
+  .socials-cards:hover .social-card:nth-child(1) { transform: rotate(-22deg) translateX(-26vw); }
   .socials-cards:hover .social-card:nth-child(2) { transform: rotate(0deg); }
-  .socials-cards:hover .social-card:nth-child(3) { transform: rotate(22deg) translateX(100px); }
+  .socials-cards:hover .social-card:nth-child(3) { transform: rotate(22deg) translateX(26vw); }
   /* individual card tap: subtle lift only */
-  .social-card:nth-child(1):hover { transform: rotate(-20deg) translateX(-100px) translateY(-12px) scale(1.04) !important; }
+  .social-card:nth-child(1):hover { transform: rotate(-20deg) translateX(-26vw) translateY(-12px) scale(1.04) !important; }
   .social-card:nth-child(2):hover { transform: rotate(0deg) translateY(-12px) scale(1.04) !important; }
-  .social-card:nth-child(3):hover { transform: rotate(20deg)  translateX(100px)  translateY(-12px) scale(1.04) !important; }
+  .social-card:nth-child(3):hover { transform: rotate(20deg) translateX(26vw)  translateY(-12px) scale(1.04) !important; }
 
   /* ── Footer: remove leftward shifts, fix nav grid ── */
   .footer-hero { padding: 4rem var(--pad) 0; }
