@@ -344,7 +344,7 @@ if (heroTitle) {
           <span class="video-folder-play">▶</span>
         </div>
         <div class="video-folder-meta">
-          <span class="video-folder-name">Single Cam</span>
+          <span class="video-folder-name">Raws</span>
           <span class="video-folder-count">${singlecam.length} videos</span>
         </div>
       </div>
