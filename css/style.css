@@ -536,7 +536,7 @@ ul { list-style: none; }
 }
 .deco-star        { top: 8%;    right: 6%;  width: clamp(36px,5vw,58px);  animation: decoFloat 5s ease-in-out infinite reverse; }
 .deco-star-bottom { bottom: 12%; right: 10%; width: clamp(28px,4vw,46px);  animation: decoFloat 6.5s ease-in-out infinite; }
-.deco-star-left   { top: 42%;   left: 4%;   width: clamp(30px,4.5vw,52px); animation: decoFloat 7s ease-in-out infinite reverse; }
+.deco-star-left   { top: 55%;   left: 18%;  width: clamp(34px,5vw,56px);   animation: decoFloat 7s ease-in-out infinite reverse; opacity: .6; }
 .deco-reel {
   top: 55%; right: 2%;
   width: clamp(40px, 6vw, 70px);
@@ -1120,7 +1120,8 @@ ul { list-style: none; }
   /* ── Socials: less whitespace, right-sized cards ── */
   .socials-section { padding: 3.5rem var(--pad) 4rem; }
   .socials-title { font-size: clamp(2.5rem, 9vw, 4rem); margin-bottom: 2.5rem; }
-  .socials-cards { height: 280px; }
+  .socials-cards { height: 280px; margin-bottom: 1.5rem; }
+  .social-card { bottom: 20px; }
   .social-card { width: clamp(120px, 28vw, 160px); }
   /* default fan — vw-based so it scales on any phone width */
   .social-card:nth-child(1) { transform: rotate(-22deg) translateX(-26vw); }
