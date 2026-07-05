@@ -264,8 +264,22 @@ if (heroTitle) {
 (function() {
   const grid     = document.getElementById('projectsGrid');
   const lightbox = document.getElementById('lightbox');
-  const detail   = document.getElementById('projDetail');
   if (!grid || !lightbox || typeof PROJECTS === 'undefined') return;
+
+  // ── Page title: set text and shrink to fit on one line ──
+  function setPageTitle(text) {
+    const el = document.querySelector('.page-title');
+    if (!el) return;
+    el.style.fontSize = '';
+    el.textContent = text;
+    wrapLowerI('.page-title');
+    el.style.whiteSpace = 'nowrap';
+    let size = parseFloat(getComputedStyle(el).fontSize);
+    while (el.scrollWidth > el.clientWidth + 1 && size > 14) {
+      size -= 1;
+      el.style.fontSize = size + 'px';
+    }
+  }
 
   // ── Render project cards (Projects tab) ──
   function renderProjects() {
@@ -378,48 +392,42 @@ if (heroTitle) {
     });
   }
 
-  // ── Project detail grid overlay ──
+  // ── Project detail (same in-page masonry grid as Pictures/Film/Video tabs) ──
   function openProjectDetail(id) {
-    if (!detail) return;
     const project = PROJECTS.find(p => p.id === id);
     if (!project) return;
-    document.querySelector('.proj-detail-name').textContent = project.name;
-    const dGrid = document.getElementById('projDetailGrid');
-    dGrid.innerHTML = project.items.map((item, i) => {
-      if (item.type === 'img') {
-        return `<div class="gallery-item" data-index="${i}">
-          <img src="${item.src}" alt="" loading="lazy" />
-        </div>`;
-      } else if (item.type === 'vimeo') {
-        const oc = item.orient === 'h' ? 'gallery-item--horiz' : 'gallery-item--vert';
-        return `<div class="gallery-item gallery-item--video ${oc}" data-index="${i}">
-          <img src="https://vumbnail.com/${item.id}.jpg" alt="" loading="lazy" />
-        </div>`;
-      } else if (item.type === 'video') {
-        return `<div class="gallery-item gallery-item--video" data-index="${i}"></div>`;
-      }
-      return '';
-    }).join('');
-    dGrid.querySelectorAll('.gallery-item').forEach(el => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    grid.classList.add('gallery-mode');
+    grid.classList.remove('video-folders-mode');
+    grid.innerHTML = `<button class="video-folder-back" id="projDetailBack">← Back to Projects</button>` +
+      project.items.map((item, i) => {
+        if (item.type === 'img') {
+          return `<div class="gallery-item" data-index="${i}">
+            <img src="${item.src}" alt="" loading="lazy" />
+          </div>`;
+        } else if (item.type === 'vimeo') {
+          const oc = item.orient === 'h' ? 'gallery-item--horiz' : 'gallery-item--vert';
+          return `<div class="gallery-item gallery-item--video ${oc}" data-index="${i}">
+            <img src="https://vumbnail.com/${item.id}.jpg" alt="" loading="lazy" />
+          </div>`;
+        } else if (item.type === 'video') {
+          return `<div class="gallery-item gallery-item--video" data-index="${i}"></div>`;
+        }
+        return '';
+      }).join('');
+    document.getElementById('projDetailBack').addEventListener('click', () => {
+      history.replaceState('', document.title, window.location.pathname + window.location.search);
+      setPageTitle('Work');
+      document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+      renderProjects();
+    });
+    grid.querySelectorAll('.gallery-item').forEach(el => {
       el.addEventListener('click', () => openSingleItem(project.items[+el.dataset.index]));
       el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
       el.addEventListener('mouseleave',  () => document.body.classList.remove('cursor-hover'));
     });
-    detail.classList.add('active');
-    detail.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeProjectDetail() {
-    if (!detail) return;
-    detail.classList.remove('active');
-    detail.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    document.getElementById('projDetailGrid').innerHTML = '';
-  }
-
-  if (detail) {
-    document.querySelector('.proj-detail-close').addEventListener('click', closeProjectDetail);
+    setPageTitle(project.name);
+    window.scrollTo(0, 0);
   }
 
   // ── Single-item lightbox ──
@@ -445,18 +453,14 @@ if (heroTitle) {
     }
     lightbox.classList.add('active', 'lb-single');
     lightbox.setAttribute('aria-hidden', 'false');
-    if (!detail || !detail.classList.contains('active')) {
-      document.body.style.overflow = 'hidden';
-    }
+    document.body.style.overflow = 'hidden';
   }
 
   function closeLightbox() {
     lightbox.classList.remove('active', 'lb-single');
     lightbox.setAttribute('aria-hidden', 'true');
     document.querySelector('.lb-media').innerHTML = '';
-    if (!detail || !detail.classList.contains('active')) {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = '';
   }
 
   document.querySelector('.lb-close').addEventListener('click', closeLightbox);
@@ -464,8 +468,7 @@ if (heroTitle) {
     if (e.target === lightbox || e.target.classList.contains('lb-body')) closeLightbox();
   });
   document.addEventListener('keydown', e => {
-    if (lightbox.classList.contains('active') && e.key === 'Escape') { closeLightbox(); return; }
-    if (detail && detail.classList.contains('active') && e.key === 'Escape') closeProjectDetail();
+    if (lightbox.classList.contains('active') && e.key === 'Escape') closeLightbox();
   });
 
   // ── Filter buttons ──
@@ -473,6 +476,8 @@ if (heroTitle) {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      history.replaceState('', document.title, window.location.pathname + window.location.search);
+      setPageTitle('Work');
       const f = btn.dataset.filter;
       if (f === 'all') renderProjects();
       else renderGallery(f);
