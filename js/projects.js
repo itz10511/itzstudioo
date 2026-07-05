@@ -203,110 +203,6 @@ window.PROJECTS = [
     ],
   },
 
-  // 8 ─────────────────────────────────────
-  {
-    id: 'skyline-la',
-    name: 'Skyline LA',
-    category: ['film'],
-    year: 2026,
-    cover: CDN('v1773634507/IMG_1795_sicwvt.jpg'),
-    items: [
-      img('v1773634511/IMG_1947_ureyul.jpg'),
-      img('v1773634509/IMG_1842_wvtsug.jpg'),
-      img('v1773634507/IMG_1795_sicwvt.jpg'),
-        img('v1773634503/IMG_1921_wgbqev.jpg'),
-      img('a_-90/v1773634501/IMG_1782_p2lzlw.jpg'),
-      img('a_-90/v1773634498/IMG_1869_zpciay.jpg'),
-      img('v1773634496/IMG_1941_bje394.jpg'),
-      img('a_90/v1773634494/IMG_1914_n9mtjn.jpg'),
-      img('v1773634492/IMG_1775_ilkl5t.jpg'),
-      img('v1773634488/IMG_1838_jggcxa.jpg'),
-      img('v1773634487/IMG_1794_peyo4e.jpg'),
-      img('v1773634483/IMG_1765_s61ilq.jpg'),
-      img('a_-90/v1773634482/IMG_1786_gjczig.jpg'),
-      img('v1773634480/IMG_1799_ygshsd.jpg'),
-      img('v1773634477/IMG_1917_re5zd0.jpg'),
-      img('v1773634474/IMG_1915_h4glyg.jpg'),
-    ],
-  },
-
-  // 9 ─────────────────────────────────────
-  {
-    id: 'sxtcy-la',
-    name: 'SXTCY LA',
-    category: ['photo', 'video'],
-    year: 2026,
-    cover: CDN('v1773630161/DSC00607_f2xj1s.jpg'),
-    items: [
-      vimeo(1173874633),
-      img('v1773630161/DSC00607_f2xj1s.jpg'),
-      img('v1773630160/DSC00642_adwyk0.jpg'),
-      img('v1773630159/DSC00643_ntuxot.jpg'),
-      img('v1773630157/DSC00619_vpsnzv.jpg'),
-      img('v1773630156/DSC00574_eev2sl.jpg'),
-      img('v1773630155/DSC00717_nxgdud.jpg'),
-    ],
-  },
-
-  // 10 ────────────────────────────────────
-  {
-    id: 'complex-family-style-picnic',
-    name: 'Complex Family Style Picnic',
-    category: ['photo'],
-    year: 2026,
-    cover: CDN('v1773634922/DSC04764_zyavax.jpg'),
-    items: [
-      img('v1773634922/DSC04764_zyavax.jpg'),
-      img('v1773634920/DSC04640_qvbgku.jpg'),
-      img('v1773634918/DSC04648_nsdehs.jpg'),
-      img('v1773634915/DSC04636_dmkwsl.jpg'),
-      img('v1773634913/DSC04633_nbacxh.jpg'),
-      img('v1773634911/DSC04700_upg3qp.jpg'),
-    ],
-  },
-
-  // 11 ────────────────────────────────────
-  {
-    id: 'toma-nike-la',
-    name: 'Toma La Noche Nike LA',
-    category: ['photo'],
-    year: 2026,
-    cover: CDN('v1773630172/DSC05208_dszgne.jpg'),
-    items: [
-      img('v1773630202/DSC06708_t9ju3c.jpg'),
-      img('v1773630201/DSC05066_zrlg5v.jpg'),
-      img('v1773630200/DSC05148_zujtbs.jpg'),
-      img('v1773630198/DSC05829_bhbptf.jpg'),
-      img('v1773630197/DSC05015_iw0zzj.jpg'),
-      img('v1773630196/DSC06025_nwzdam.jpg'),
-      img('v1773630194/DSC06114_fhjyrd.jpg'),
-      img('v1773630194/DSC06679_pgnjb2.jpg'),
-      img('v1773630192/DSC05326_ul9ncu.jpg'),
-      img('v1773630190/DSC05504_uen8li.jpg'),
-      img('v1773630190/DSC05419_otvrym.jpg'),
-      img('v1773630188/DSC06441_ll5wbf.jpg'),
-      img('v1773630187/DSC06770_jf5e1x.jpg'),
-      img('v1773630185/DSC06635_x4kqkz.jpg'),
-      img('v1773630184/DSC06315_roiuxy.jpg'),
-      img('v1773630183/DSC05774_eb6zek.jpg'),
-      img('v1773630182/DSC05335_dmq4mw.jpg'),
-      img('v1773630181/DSC05143_jm24aq.jpg'),
-      img('v1773630181/DSC05043_mmoo8u.jpg'),
-      img('v1773630178/DSC05125_z1twhq.jpg'),
-      img('v1773630177/DSC05495_u2fy25.jpg'),
-      img('v1773630175/DSC05323_gm84u3.jpg'),
-      img('v1773630174/DSC06547_frx4ut.jpg'),
-      img('v1773630173/DSC06478_uoevz3.jpg'),
-      img('v1773630172/DSC05208_dszgne.jpg'),
-      img('v1773630170/DSC05398_kqa2l3.jpg'),
-      img('v1773630169/DSC06262_f5y5fa.jpg'),
-      img('v1773630168/DSC05295_jooobj.jpg'),
-      img('v1773630167/DSC05382_wcrvnu.jpg'),
-      img('v1773630166/DSC05284_qvqeac.jpg'),
-      img('v1773630164/DSC05092_iwmyse.jpg'),
-    ],
-  },
-
 ];
 
 /* ═══════════════════════════════════════
@@ -321,7 +217,6 @@ window.GALLERY = {
     img('v1773633467/DSC06074_exwvvh.jpg'),      // Elliot & Liam
     img('v1773633483/DSC02673_gug2qs.jpg'),      // NEW
     img('v1773633456/DSC00161_srsn5r.jpg'),      // Ranger Trucco
-    img('v1773630161/DSC00607_f2xj1s.jpg'),      // SXTCY
     img('v1773630209/DSC03309_gknta0.jpg'),      // Ian Asher
     img('v1773630222/DSC01096_scgnpu.jpg'),      // DIØN
     // ── EDM WAVE 2 ─────────────────────────
@@ -330,7 +225,6 @@ window.GALLERY = {
     img('v1773633472/DSC07061_t1fkpg.jpg'),      // Elliot & Liam
     img('v1773633493/DSC03827_wallba.png'),      // NEW
     img('v1773633462/IMG_7879_sav5kk.jpg'),      // Ranger Trucco
-    img('v1773630160/DSC00642_adwyk0.jpg'),      // SXTCY
     img('v1773630210/DSC03597_s3rcqy.jpg'),      // Ian Asher
     img('v1773630219/DSC01320_fvilnt.jpg'),      // DIØN
     // ── EDM WAVE 3 ─────────────────────────
@@ -339,7 +233,6 @@ window.GALLERY = {
     img('v1773633470/DSC06641_n01mq4.jpg'),      // Elliot & Liam
     img('v1773633491/DSC08029_e6sq37.jpg'),      // NEW
     img('v1773633460/DSC09614_mkoovr.jpg'),      // Ranger Trucco
-    img('v1773630156/DSC00574_eev2sl.jpg'),      // SXTCY
     img('v1773630207/DSC04319_fwwi7p.jpg'),      // Ian Asher
     img('v1773630218/DSC01514_tetiua.jpg'),      // DIØN
     // ── EDM WAVE 4 ─────────────────────────
@@ -347,7 +240,6 @@ window.GALLERY = {
     img('v1773630231/DSC06898_vhje4g.jpg'),      // Beatport — Cole
     img('v1773633469/DSC06833_ixwpgo.jpg'),      // Elliot & Liam
     img('v1773633459/DSC00259_gqbh7j.jpg'),      // Ranger Trucco
-    img('v1773630155/DSC00717_nxgdud.jpg'),      // SXTCY
     img('v1773630206/DSC03603_tvbmlz.jpg'),      // Ian Asher
     img('v1773630217/DSC01039_rlnp7g.jpg'),      // DIØN
     // ── EDM WAVE 5 ─────────────────────────
@@ -366,24 +258,6 @@ window.GALLERY = {
     img('v1773630229/DSC06789_zlnwpj.jpg'),      // Beatport — Cole
     img('v1773630574/DSC07216_oh7ffb.jpg'),      // Beatport — Beltran
     img('v1773633452/DSC09771_pe0pwj.jpg'),      // Ranger Trucco
-    // ── COMPLEX ────────────────────────────
-    img('v1773634922/DSC04764_zyavax.jpg'),
-    img('v1773634920/DSC04640_qvbgku.jpg'),
-    img('v1773634918/DSC04648_nsdehs.jpg'),
-    img('v1773634915/DSC04636_dmkwsl.jpg'),
-    img('v1773634911/DSC04700_upg3qp.jpg'),
-    // ── TOMA LA NOCHE NIKE LA ───────────────
-    img('v1773630202/DSC06708_t9ju3c.jpg'),
-    img('v1773630198/DSC05829_bhbptf.jpg'),
-    img('v1773630197/DSC05015_iw0zzj.jpg'),
-    img('v1773630194/DSC06114_fhjyrd.jpg'),
-    img('v1773630187/DSC06770_jf5e1x.jpg'),
-    img('v1773630184/DSC06315_roiuxy.jpg'),
-    img('v1773630183/DSC05774_eb6zek.jpg'),
-    img('v1773630190/DSC05504_uen8li.jpg'),
-    img('v1773630201/DSC05066_zrlg5v.jpg'),
-    img('v1773630173/DSC06478_uoevz3.jpg'),
-    img('v1773630168/DSC05295_jooobj.jpg'),
   ],
 
   film: [
@@ -402,23 +276,6 @@ window.GALLERY = {
     img('a_90/v1773636173/IMG_9219_bwyn9m.jpg'),
     img('v1773636173/IMG_9206_jppjfd.jpg'),
     img('a_90/v1773636173/IMG_9204_gvuzad.jpg'),
-    // Skyline LA
-    img('v1773634511/IMG_1947_ureyul.jpg'),
-    img('v1773634509/IMG_1842_wvtsug.jpg'),
-    img('v1773634507/IMG_1795_sicwvt.jpg'),
-    img('v1773634503/IMG_1921_wgbqev.jpg'),
-    img('a_-90/v1773634501/IMG_1782_p2lzlw.jpg'),
-    img('a_-90/v1773634498/IMG_1869_zpciay.jpg'),
-    img('v1773634496/IMG_1941_bje394.jpg'),
-    img('a_90/v1773634494/IMG_1914_n9mtjn.jpg'),
-    img('a_-90/v1773634492/IMG_1775_ilkl5t.jpg'),
-    img('a_-90/v1773634488/IMG_1838_jggcxa.jpg'),
-    img('v1773634487/IMG_1794_peyo4e.jpg'),
-    img('v1773634483/IMG_1765_s61ilq.jpg'),
-    img('a_-90/v1773634482/IMG_1786_gjczig.jpg'),
-    img('v1773634480/IMG_1799_ygshsd.jpg'),
-    img('v1773634477/IMG_1917_re5zd0.jpg'),
-    img('v1773634474/IMG_1915_h4glyg.jpg'),
     // Ian Asher @ Academy LA & NOVA SD
     img('v1773634668/IMG_2595_cbhbec.jpg'),
     img('v1773634664/IMG_2631_wpfm8m.jpg'),
@@ -488,8 +345,6 @@ window.GALLERY = {
     vimeo(1173885497),
     vimeo(1173885477),
     mp4('v1773633475/chrisZoremix_hlcbqv.mp4'),
-    // SXTCY LA
-    vimeo(1173874633),
   ],
 
 };
